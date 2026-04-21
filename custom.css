@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Ancizar+Sans:wght@400;500;600;700;800&display=swap');
+
+/*-- scss:defaults --*/
+
+$primary: #E67E22;
+$secondary: #E67E22;
+
+$body-bg: #FFF8F1;
+$body-color: #2C2C2C;
+
+$link-color: #A04000;
+$headings-color: #1D1A42;
+
+$navbar-bg: #FE8501;
+$navbar-fg: #FFFFFF;
+
+$font-family-sans-serif: "Ancizar Sans", sans-serif;
+$headings-font-family: "Ancizar Sans", sans-serif;
+
+/*-- scss:rules --*/
+
+body {
+  line-height: 1.7;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+}
+
+.navbar {
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+  font-weight: 600;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #F5D7BD;
+}
+
+.quarto-title-banner {
+  background: #E67E22;
+  color: #FFFFFF;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #8A520D;
+}
+
+.btn-primary {
+  background-color: #E67E22;
+  border-color: #E67E22;
+  color: #FFFFFF;
+}
+
+.btn-primary:hover {
+  background-color: #C96A12;
+  border-color: #C96A12;
+  color: #FFFFFF;
+}
+
+.btn-outline-primary {
+  color: #1D1A42;
+  border-color: #1D1A42;
+}
+
+.btn-outline-primary:hover {
+  background-color: #1D1A42;
+  border-color: #1D1A42;
+  color: #FFFFFF;
+}
+
+pre, div.sourceCode {
+  background: #FFFCF8;
+  border: 1px solid #ECB17B;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+code {
+  color: #A04000;
+}
+
+.callout {
+  border-radius: 16px;
+}
+
+.callout.callout-tip {
+  background-color: #FFF1DD;
+  border-left-color: #FE8501;
+}
+
+.callout.callout-note {
+  background-color: #F5D7BD;
+  border-left-color: #1D1A42;
+}
+
+.sidebar nav[role="doc-toc"] a.active {
+  color: #A04000;
+  font-weight: 600;
+}
+
+.nav-footer {
+  background-color: #1D1A42;
+  color: #FFFFFF;
+  border-top: none;
+}
+
+.nav-footer a {
+  color: #F5D7BD;
+}
+
+#title-block-header {
+  margin-bottom: 2rem;
+}

@@ -1,9 +1,30 @@
 ---
-title: "Taller R"
+title: "Taller de R"
+
+title-block-banner: "#FE8501"
+title-block-banner-color: "#FFFFFF"
 ---
 
-# Bienvenidos
+## Bienvenida
 
-Este es el sitio del taller.
+De parte de **GEA - Estadística** te damos la bienvenida a esta página, en la que encontrarás el material usado en las sesiones de los talleres de R, **Desde cero: Conceptos básicos de R** y **Hacia los datos: gráficos y visualización**.
 
-[Ir a las diapositivas](Taller/DiaposTallerR.qmd)
+
+## Requisitos recomendados
+
+Para aprovechar mejor los talleres, se recomienda tener:
+
+- R
+- RStudio
+- Ganas de explorar y practicar
+
+
+## ¿A quién está dirigido?
+
+Este espacio está pensado para personas que quieren iniciarse en R o fortalecer sus habilidades básicas de análisis y visualización de datos.
+
+
+## Material
+
+
+* [Diapositivas de la primera sesión](Taller/DiaposTallerR.qmd)

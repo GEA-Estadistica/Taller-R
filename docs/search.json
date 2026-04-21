@@ -114,8 +114,36 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Taller R",
+    "title": "Taller de R",
     "section": "",
-    "text": "Bienvenidos\nEste es el sitio del taller.\nIr a las diapositivas"
+    "text": "De parte de GEA - Estadística te damos la bienvenida a esta página, en la que encontrarás el material usado en las sesiones de los talleres de R, Desde cero: Conceptos básicos de R y Hacia los datos: gráficos y visualización."
+  },
+  {
+    "objectID": "index.html#bienvenida",
+    "href": "index.html#bienvenida",
+    "title": "Taller de R",
+    "section": "",
+    "text": "De parte de GEA - Estadística te damos la bienvenida a esta página, en la que encontrarás el material usado en las sesiones de los talleres de R, Desde cero: Conceptos básicos de R y Hacia los datos: gráficos y visualización."
+  },
+  {
+    "objectID": "index.html#requisitos-recomendados",
+    "href": "index.html#requisitos-recomendados",
+    "title": "Taller de R",
+    "section": "Requisitos recomendados",
+    "text": "Requisitos recomendados\nPara aprovechar mejor los talleres, se recomienda tener:\n\nR\nRStudio\nGanas de explorar y practicar"
+  },
+  {
+    "objectID": "index.html#a-quién-está-dirigido",
+    "href": "index.html#a-quién-está-dirigido",
+    "title": "Taller de R",
+    "section": "¿A quién está dirigido?",
+    "text": "¿A quién está dirigido?\nEste espacio está pensado para personas que quieren iniciarse en R o fortalecer sus habilidades básicas de análisis y visualización de datos."
+  },
+  {
+    "objectID": "index.html#material",
+    "href": "index.html#material",
+    "title": "Taller de R",
+    "section": "Material",
+    "text": "Material\n\nDiapositivas de la primera sesión"
   }
 ]

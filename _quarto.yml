@@ -1,20 +1,33 @@
 project:
   type: website
   output-dir: docs
+  
+lang: es
     
 website:
   title: "Taller R"
   navbar:
+    background: "#E67E22"
+    foreground: "#FFFFFF"
+    search: true
+    pinned: true
     left:
       - href: index.qmd
-        text: Home
+        text: Inicio
       - text: R Desde Cero
         href: Taller/DiaposTallerR.qmd
-      
+    
+  page-footer:
+    left: "GEA - Estadística"
+    right: "Universidad Nacional de Colombia"
       
 format:
   html:
     theme:
-      - journal
-      - brand
+      - litera
+      - styles.scss
     toc: true
+    toc-location: right
+    anchor-sections: true
+    smooth-scroll: true
+    code-copy: true
