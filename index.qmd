@@ -1,11 +1,9 @@
 ---
-title: "Taller-R"
+title: "Taller R"
 ---
 
-This is a Quarto website.
+# Bienvenidos
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+Este es el sitio del taller.
 
-```{r}
-1 + 1
-```
+[Ir a las diapositivas](Taller/DiaposTallerR.qmd)

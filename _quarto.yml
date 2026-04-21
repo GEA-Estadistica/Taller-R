@@ -1,22 +1,22 @@
 project:
   type: website
   output-dir: docs
-
+    
 website:
-  title: "Taller-R"
+  title: "Taller R"
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
-
+      - text: Taller de R
+        menu:
+          - text: Desde cero
+            href: Taller/DiaposTallerR.qmd
+      
+      
 format:
   html:
     theme:
-      - cosmo
+      - journal
       - brand
-    css: styles.css
     toc: true
-
-
-

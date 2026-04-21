@@ -4,5 +4,11 @@
   },
   "about.qmd": {
     "about.html": "95d9c5e2"
+  },
+  "Taller/DiaposTallerR.qmd": {
+    "DiaposTallerR.html": "3df97db2"
+  },
+  "docs/Taller/DiaposTallerR.qmd": {
+    "DiaposTallerR.html": "9caaf339"
   }
 }

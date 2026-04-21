@@ -1,10 +1,108 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Taller-R",
-    "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+    "objectID": "Taller/DiaposTallerR.html#seamos-honestos",
+    "href": "Taller/DiaposTallerR.html#seamos-honestos",
+    "title": "Taller de R",
+    "section": "Seamos honestos…",
+    "text": "Seamos honestos…\n\nHan sentido que el uso del celular afecta su:\n\n\n\nSalud mental\n\n\n\n\n\n\n\n\nRendimiento\n\n\n\n\n\n\n\n¿Han intentado borrar redes… y después volverlas a instalar?"
+  },
+  {
+    "objectID": "Taller/DiaposTallerR.html#si-su-respuesta-fue-sí-no-están-solos.",
+    "href": "Taller/DiaposTallerR.html#si-su-respuesta-fue-sí-no-están-solos.",
+    "title": "Taller de R",
+    "section": "Si su respuesta fue sí, no están solos.",
+    "text": "Si su respuesta fue sí, no están solos.\n\nMuchas personas han sentido cambios en su día a día relacionados con el uso del celular.\n\n\n\n\n\n\n\nNuestra propuesta\n\n\nHoy los invitamos a ir más allá: analizaremos un conjunto de datos real para descubrir qué está pasando realmente en relación a:\n\nUso de redes sociales\nCalidad del sueño\nSalud mental"
+  },
+  {
+    "objectID": "Taller/DiaposTallerR.html#cómo-lo-vamos-a-hacer",
+    "href": "Taller/DiaposTallerR.html#cómo-lo-vamos-a-hacer",
+    "title": "Taller de R",
+    "section": "¿Cómo lo vamos a hacer?",
+    "text": "¿Cómo lo vamos a hacer?\n\n1. Preparación del entorno\n\nFamiliarización con R y RStudio.\n\n2. Exploración del dataset\n\nCarga de datos y reconocimiento de variables.\nAnálisis de la naturaleza de las variables.\n\n3. Procesamiento y Análisis\n\nFiltrado y agrupación de información clave.\n\n4. Visualización e Interpretación\n\nConstrucción de gráficos.\nTraducción de datos en hallazgos sobre el impacto de las redes sociales."
+  },
+  {
+    "objectID": "Taller/DiaposTallerR.html#instalación-de",
+    "href": "Taller/DiaposTallerR.html#instalación-de",
+    "title": "Taller de R",
+    "section": "- Instalación de ",
+    "text": "- Instalación de \nPara poder continuar con el taller, es necesario que:\n\nYa tengan instalado R en sus equipos. Si aún no lo tienen, pueden visitar CRAN.\nTener Rstudio instalado. En la página de posit pueden encontrarlo."
+  },
+  {
+    "objectID": "Taller/DiaposTallerR.html#interfaz",
+    "href": "Taller/DiaposTallerR.html#interfaz",
+    "title": "Taller de R",
+    "section": "- Interfaz",
+    "text": "- Interfaz\n\nInterfaz de RStudio. Fuente: ICESI"
+  },
+  {
+    "objectID": "Taller/DiaposTallerR.html#operaciones-aritméticas",
+    "href": "Taller/DiaposTallerR.html#operaciones-aritméticas",
+    "title": "Taller de R",
+    "section": "- Operaciones aritméticas",
+    "text": "- Operaciones aritméticas\n\n\nSuma\n\n\n2 + 2\n\n[1] 4\n\n\n\n\n\nResta\n\n\n2 - 2\n\n[1] 0\n\n\n\n\n\nMultiplicación\n\n\n2 * 2\n\n[1] 4\n\n\n\n\n\nDivisión\n\n\n2 / 2\n\n[1] 1\n\n\n\n\n\nRaíz Cuadrada\n\n\nsqrt(2)\n\n[1] 1.414214"
+  },
+  {
+    "objectID": "Taller/DiaposTallerR.html#operaciones-relacionales",
+    "href": "Taller/DiaposTallerR.html#operaciones-relacionales",
+    "title": "Taller de R",
+    "section": "- Operaciones Relacionales",
+    "text": "- Operaciones Relacionales\n\n\nIgualdad\n\n\n2 == 2\n\n[1] TRUE\n\n\"Q'bo\" == \"Vemos\"\n\n[1] FALSE\n\n\n\n\n\nDistinto\n\n\n3 != 2\n\n[1] TRUE\n\n\n\n\n\nMayor que\n\n\n15 &gt; 15\n\n[1] FALSE\n\n\n\n\n\nMayor o igual que\n\n\n15 &gt;= 5\n\n[1] TRUE\n\n\n\n\n\nMenor que\n\n\n15 &lt; 5\n\n[1] FALSE\n\n\n\n\n\nMenor o igual que\n\n\n15 &lt;= 15\n\n[1] TRUE"
+  },
+  {
+    "objectID": "Taller/DiaposTallerR.html#asignación-de-objetos-a-variables-y-tipos-de-objetos",
+    "href": "Taller/DiaposTallerR.html#asignación-de-objetos-a-variables-y-tipos-de-objetos",
+    "title": "Taller de R",
+    "section": "- Asignación de objetos a variables y tipos de objetos",
+    "text": "- Asignación de objetos a variables y tipos de objetos\n\n\nEntero\n\n\nobjeto &lt;- 2L\ntypeof(objeto)\n\n[1] \"integer\"\n\n\n\n\n\nFloat (Double)\n\n\nobjeto2 &lt;- objeto / 3\nobjeto2\n\n[1] 0.6666667\n\ntypeof(objeto2)\n\n[1] \"double\"\n\n\n\n\n\nCáracter\n\n\nobjeto3 &lt;- \"Hola\"\ntypeof(objeto3)\n\n[1] \"character\"\n\n\n\n\n\nBooleano\n\n\n\n[1] \"logical\""
+  },
+  {
+    "objectID": "Taller/DiaposTallerR.html#estructuras-básicas",
+    "href": "Taller/DiaposTallerR.html#estructuras-básicas",
+    "title": "Taller de R",
+    "section": "- Estructuras básicas",
+    "text": "- Estructuras básicas\n\n\nVector numérico\n\n\nobjeto5 &lt;- c(2, 4, 6)\nobjeto5\n\n[1] 2 4 6\n\nclass(objeto5)\n\n[1] \"numeric\"\n\n\n\n\n\nVector de carácteres\n\n\nobjeto6 &lt;- c(\"Bienvenido\", \"al\", \"taller\")\nobjeto6\n\n[1] \"Bienvenido\" \"al\"         \"taller\"    \n\nclass(objeto6)\n\n[1] \"character\"\n\n\n\n\n\nMatriz\n\n\nobjeto7 &lt;- matrix(c(1, 2, 3,\n                    4, 5, 6),\n                  nrow = 2, \n                  ncol = 3)\n\nobjeto7\n\n     [,1] [,2] [,3]\n[1,]    1    3    5\n[2,]    2    4    6\n\nclass(objeto7)\n\n[1] \"matrix\" \"array\" \n\n\n\n\n\nData frame\n\n\nnombres &lt;- c(\"Ana\", \"Luis\", \"Marta\", \"Juan\")\nedades &lt;- c(20, 22, 21, 23)\naprueba &lt;- c(TRUE, FALSE, TRUE, TRUE)\n\nclase &lt;- data.frame(nombres, edades, aprueba)\nclase\n\n  nombres edades aprueba\n1     Ana     20    TRUE\n2    Luis     22   FALSE\n3   Marta     21    TRUE\n4    Juan     23    TRUE\n\n\n\nclass(clase)\n\n[1] \"data.frame\""
+  },
+  {
+    "objectID": "Taller/DiaposTallerR.html#directorio",
+    "href": "Taller/DiaposTallerR.html#directorio",
+    "title": "Taller de R",
+    "section": "- Directorio",
+    "text": "- Directorio\nPara poder conocer su directorio de trabajo, basta con la función getwd().\n\ngetwd()\n\n[1] \"C:/Users/camil/OneDrive - Universidad Nacional de Colombia/Documentos/Camilo UNAL/GEA/GitHub/Taller-R/Taller\"\n\n\nPara poder ver los archivos y carpetas que tienen en dicho directorio, se usa la función dir()\n\ndir()\n\n [1] \"_extensions\"                     \"DiaposTallerR.qmd\"              \n [3] \"DiaposTallerR.rmarkdown\"         \"dplyr.png\"                      \n [5] \"interfaz.png\"                    \"posit.png\"                      \n [7] \"rendimiento.png\"                 \"salud_mental.png\"               \n [9] \"Social_media_impact_on_life.csv\" \"styles.css\"                     \n\n\nSi tienen los archivos con los que van a trabajar en otro directorio, entonces se usa setwd()\n\nsetwd(\"C:\\\\Users\\\\sofia\\\\Downloads\\\\Taller R versión 2\")"
+  },
+  {
+    "objectID": "Taller/DiaposTallerR.html#paquetes",
+    "href": "Taller/DiaposTallerR.html#paquetes",
+    "title": "Taller de R",
+    "section": "- Paquetes",
+    "text": "- Paquetes\nUn paquete es un conjunto de funciones, datos y documentación que amplía las capacidades de R. Gracias a los paquetes, es posible realizar un montón de tareas de manera más sencilla.\n\nreadxl: importar archivos de Excel (.xlsx)\ndplyr: manipulación y transformación de datos\nggplot2: visualización de datos\nhaven: importar archivos de Stata, SPSS y SAS\n\n- Instalación y cargado de paquetes\nLa instalación de un paquete se realiza una única vez en el equipo en el que se esté trabajando. Por otro lado, para poder usarlo, es necesario cargarlo en cada sesión de R.\n\ninstall.packages(\"readxl\") # Instalación\n\nlibrary(readxl) # Se carga el paquete"
+  },
+  {
+    "objectID": "Taller/DiaposTallerR.html#tipos-de-archivos",
+    "href": "Taller/DiaposTallerR.html#tipos-de-archivos",
+    "title": "Taller de R",
+    "section": "- Tipos de Archivos",
+    "text": "- Tipos de Archivos\nLas bases de datos que se quieran trabajar pueden ser de distintos formatos:\n\nTexto plano: CSV (.csv), TXT (.txt)\nHojas de cálculo: Excel (.xlsx)\nOtros software: Stata (.dta), SAS (.sas7bdat)\nFormatos de R: RData (.RData), Rda (.rda)\nFormatos de Big Data: Parquet (.parquet)\n\nAlgunas funciones para importar archivos vienen preinstalados en R, pero otras requieren instalar paquetes adicionales. Por ejemplo, uno de los tipos de archivo más comunes es el formato .xlsx."
+  },
+  {
+    "objectID": "Taller/DiaposTallerR.html#base-de-datos-a-trabajar",
+    "href": "Taller/DiaposTallerR.html#base-de-datos-a-trabajar",
+    "title": "Taller de R",
+    "section": "- Base de datos a trabajar",
+    "text": "- Base de datos a trabajar\nLos datos que se usarán en esta sesión provienen de Kaggle. Estos los pueden encontrar el siguiente link.\nEn esta base de datos se cuenta con información sobre el impacto de las plataformas digitales y la IA sobre los estudiantes, tanto en su vida personal como académica.\nDescripción de las variables\n\n\n\nTabla 1: Descripción de variables del dataset\n\n\n\n\n\n\n\n\n\nVariable\nDescripción\n\n\n\n\nStudent_ID\nIdentificador único para cada estudiante.\n\n\nAge\nEdad del estudiante (en años).\n\n\nGender\nGénero del estudiante (Masculino/Femenino).\n\n\nAcademic_Level\nNivel educativo (Escuela / College / Universidad).\n\n\nCountry\nPaís o ubicación del estudiante.\n\n\nAvg_Daily_Usage_Hours\nPromedio de horas diarias en plataformas digitales/IA.\n\n\nMost_Used_Platform\nPlataforma usada con más frecuencia (ej. ChatGPT, Gemini).\n\n\nAffects_Academic_Performance\nImpacto en el rendimiento (Mejora / Sin cambio / Declive).\n\n\nSleep_Hours_Per_Night\nDuración promedio del sueño por noche.\n\n\nMental_Health_Score\nPuntaje que representa el bienestar mental.\n\n\nOverall_Impact\nEfecto general del uso (Positivo / Neutral / Negativo)."
+  },
+  {
+    "objectID": "Taller/DiaposTallerR.html#importación-de-la-base-de-datos",
+    "href": "Taller/DiaposTallerR.html#importación-de-la-base-de-datos",
+    "title": "Taller de R",
+    "section": "- Importación de la base de datos",
+    "text": "- Importación de la base de datos\nAl descargar el archivo, es posible ver su extensión (.csv). De esta forma, se usa la función read.csv().\n\ndf &lt;- read.csv(\"Social_media_impact_on_life.csv\")\n\nAhora, miramos el tipo de objeto y cómo podemos obtener una rápida visualización de su contenido con las funciones class() y str() o head().\n\nclass(df)\n\n[1] \"data.frame\"\n\n\n\nstr(df)\n\n'data.frame':   1705 obs. of  11 variables:\n $ Student_ID                  : int  232 564 788 686 608 370 862 520 703 33 ...\n $ Age                         : int  21 23 22 18 24 19 22 21 24 19 ...\n $ Gender                      : chr  \"Male\" \"Female\" \"Male\" \"Male\" ...\n $ Academic_Level              : chr  \"Undergraduate\" \"Undergraduate\" \"Graduate\" \"Undergraduate\" ...\n $ Country                     : chr  \"Other\" \"Other\" \"Canada\" \"Other\" ...\n $ Avg_Daily_Usage_Hours       : num  4 1.6 4.6 7 7.5 4.1 8 6 4.7 3.6 ...\n $ Most_Used_Platform          : chr  \"Facebook\" \"LinkedIn\" \"Instagram\" \"Snapchat\" ...\n $ Affects_Academic_Performance: chr  \"No\" \"No\" \"No\" \"Yes\" ...\n $ Sleep_Hours_Per_Night       : num  6.7 8.6 6.7 5.4 5 6.8 5.2 5.7 7 8.1 ...\n $ Mental_Health_Score         : num  6.8 7.6 7 5.3 4.4 6.8 5.3 4.7 6.2 8.6 ...\n $ Overall_Impact              : chr  \"Neutral\" \"Positive\" \"Neutral\" \"Negative\" ...\n\n\nSi queremos ver sus diez primeras filas:\n\nhead(df, n = 10)\n\n   Student_ID Age Gender Academic_Level Country Avg_Daily_Usage_Hours\n1         232  21   Male  Undergraduate   Other                   4.0\n2         564  23 Female  Undergraduate   Other                   1.6\n3         788  22   Male       Graduate  Canada                   4.6\n4         686  18   Male  Undergraduate   Other                   7.0\n5         608  24 Female    High School   Other                   7.5\n6         370  19 Female    High School   Other                   4.1\n7         862  22 Female       Graduate   Other                   8.0\n8         520  21 Female       Graduate   Other                   6.0\n9         703  24   Male  Undergraduate     USA                   4.7\n10         33  19   Male    High School   Other                   3.6\n   Most_Used_Platform Affects_Academic_Performance Sleep_Hours_Per_Night\n1            Facebook                           No                   6.7\n2            LinkedIn                           No                   8.6\n3           Instagram                           No                   6.7\n4            Snapchat                          Yes                   5.4\n5            Facebook                          Yes                   5.0\n6             Twitter                          Yes                   6.8\n7           Instagram                          Yes                   5.2\n8            Facebook                          Yes                   5.7\n9             YouTube                           No                   7.0\n10             TikTok                           No                   8.1\n   Mental_Health_Score Overall_Impact\n1                  6.8        Neutral\n2                  7.6       Positive\n3                  7.0        Neutral\n4                  5.3       Negative\n5                  4.4       Negative\n6                  6.8        Neutral\n7                  5.3       Negative\n8                  4.7       Negative\n9                  6.2        Neutral\n10                 8.6       Positive"
+  },
+  {
+    "objectID": "Taller/DiaposTallerR.html#primera-herramienta-select",
+    "href": "Taller/DiaposTallerR.html#primera-herramienta-select",
+    "title": "Taller de R",
+    "section": "- Primera herramienta: select()",
+    "text": "- Primera herramienta: select()\nA. Filtrando el ruido\nLa función select() de dplyr sirve para elegir columnas específicas de un conjunto de datos.\n\n\nLa pregunta: ¿Qué variables son clave para medir el impacto digital?"
   },
   {
     "objectID": "about.html",
@@ -12,5 +110,12 @@
     "title": "About",
     "section": "",
     "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Taller R",
+    "section": "",
+    "text": "Bienvenidos\nEste es el sitio del taller.\nIr a las diapositivas"
   }
 ]

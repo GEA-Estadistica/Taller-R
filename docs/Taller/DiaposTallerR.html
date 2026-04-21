@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-065a5179aebd64318d7ea99d77b64a9e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.25">
+
+  <title>Taller R – Taller de R</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #24292e;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #24292e; } /* Normal */
+    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
+    code span.an { color: #6a737d; } /* Annotation */
+    code span.at { color: #d73a49; } /* Attribute */
+    code span.bn { color: #005cc5; } /* BaseN */
+    code span.bu { color: #d73a49; } /* BuiltIn */
+    code span.cf { color: #d73a49; } /* ControlFlow */
+    code span.ch { color: #032f62; } /* Char */
+    code span.cn { color: #005cc5; } /* Constant */
+    code span.co { color: #6a737d; } /* Comment */
+    code span.cv { color: #6a737d; } /* CommentVar */
+    code span.do { color: #6a737d; } /* Documentation */
+    code span.dt { color: #d73a49; } /* DataType */
+    code span.dv { color: #005cc5; } /* DecVal */
+    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
+    code span.ex { color: #d73a49; font-weight: bold; } /* Extension */
+    code span.fl { color: #005cc5; } /* Float */
+    code span.fu { color: #6f42c1; } /* Function */
+    code span.im { color: #032f62; } /* Import */
+    code span.in { color: #6a737d; } /* Information */
+    code span.kw { color: #d73a49; } /* Keyword */
+    code span.op { color: #24292e; } /* Operator */
+    code span.ot { color: #6f42c1; } /* Other */
+    code span.pp { color: #d73a49; } /* Preprocessor */
+    code span.re { color: #6a737d; } /* RegionMarker */
+    code span.sc { color: #005cc5; } /* SpecialChar */
+    code span.ss { color: #032f62; } /* SpecialString */
+    code span.st { color: #032f62; } /* String */
+    code span.va { color: #e36209; } /* Variable */
+    code span.vs { color: #032f62; } /* VerbatimString */
+    code span.wa { color: #ff5555; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-17c388861f935dfe94d43233766f154b.css">
+  <link rel="stylesheet" href="styles.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Taller de R</h1>
+
+<div class="quarto-title-authors">
+</div>
+
+</section>
+<section>
+<section id="desde-cero-analizando-el-impacto-de-la-vida-digital" class="title-slide slide level1 center">
+<h1><strong><i class="fa-brands fa-r-project" aria-label="r-project"></i> desde cero:</strong> Analizando el impacto de la vida digital</h1>
+<p><br><br></p>
+<p>¿Te animas a aprender R y descubrir qué dicen los datos sobre redes sociales y salud mental?</p>
+</section>
+<section id="seamos-honestos" class="slide level2" data-vertical-align="center">
+<h2>Seamos honestos…</h2>
+<p><br></p>
+<p>Han sentido que el uso del celular afecta su:</p>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<h3 id="salud-mental"><span style="color: #a04000; border-bottom: 2px solid #a04000;">Salud mental</span></h3>
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="salud_mental.png" class="quarto-figure quarto-figure-left" style="width:80.0%"></p>
+</figure>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<h3 id="rendimiento"><span style="color: #a04000; border-bottom: 2px solid #a04000;">Rendimiento</span></h3>
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="rendimiento.png" class="quarto-figure quarto-figure-left" style="width:80.0%"></p>
+</figure>
+</div>
+</div></div>
+<p><br></p>
+<p>¿Han intentado borrar redes… y después volverlas a instalar?</p>
+</section>
+<section id="si-su-respuesta-fue-sí-no-están-solos." class="slide level2">
+<h2>Si su respuesta fue sí, <strong>no están solos.</strong></h2>
+<p><br></p>
+<p>Muchas personas han sentido cambios en su día a día relacionados con el uso del celular.</p>
+<p><br></p>
+<div class="callout callout-tip callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Nuestra propuesta</strong></p>
+</div>
+<div class="callout-content">
+<p>Hoy los invitamos a ir más allá: analizaremos un <strong>conjunto de datos real</strong> para descubrir qué está pasando realmente en relación a:</p>
+<ul>
+<li>Uso de redes sociales</li>
+<li>Calidad del sueño</li>
+<li>Salud mental</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="cómo-lo-vamos-a-hacer" class="slide level2">
+<h2><span style="color: #a04000; border-bottom: 2px solid #a04000;">¿Cómo lo vamos a hacer?</span></h2>
+<p><br></p>
+<h3 id="preparación-del-entorno">1. Preparación del entorno</h3>
+<ul>
+<li class="fragment">Familiarización con <strong>R y RStudio</strong>.</li>
+</ul>
+<h3 id="exploración-del-dataset">2. Exploración del dataset</h3>
+<ul>
+<li class="fragment"><strong>Carga de datos</strong> y reconocimiento de variables.</li>
+<li class="fragment">Análisis de la naturaleza de las variables.</li>
+</ul>
+<h3 id="procesamiento-y-análisis">3. Procesamiento y Análisis</h3>
+<ul>
+<li class="fragment">Filtrado y agrupación de información clave.</li>
+</ul>
+<h3 id="visualización-e-interpretación">4. Visualización e Interpretación</h3>
+<ul>
+<li class="fragment">Construcción de gráficos.</li>
+<li class="fragment">Traducción de datos en hallazgos sobre el impacto de las redes sociales.</li>
+</ul>
+</section></section>
+<section>
+<section id="preparación-del-entorno-1" class="title-slide slide level1 center" data-background-color="#f8f9fa">
+<h1>1. Preparación del entorno <i class="fa-brands fa-r-project" aria-label="r-project"></i></h1>
+
+</section>
+<section id="instalación-de" class="slide level2 scrollable" data-background-color="#f8f9fa">
+<h2>- Instalación de <i class="fa-brands fa-r-project" aria-label="r-project"></i></h2>
+<p>Para poder continuar con el taller, es necesario que:</p>
+<ol type="1">
+<li><p>Ya tengan instalado <strong>R</strong> en sus equipos. Si aún no lo tienen, pueden visitar <a href="https://cran.r-project.org/">CRAN</a>.</p></li>
+<li><p>Tener <strong>Rstudio</strong> instalado. En la página de <a href="https://posit.co/download/rstudio-desktop">posit</a> pueden encontrarlo.</p></li>
+</ol>
+
+<img data-src="posit.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section id="interfaz" class="slide level2">
+<h2>- Interfaz</h2>
+
+<img data-src="interfaz.png" style="width:100.0%" class="r-stretch quarto-figure-center"><p class="caption">Interfaz de RStudio. Fuente: <a href="https://www.icesi.edu.co/editorial/empezando-usar-web/PartesR.html">ICESI</a></p></section>
+<section id="operaciones-aritméticas" class="slide level2 scrollable" data-background-color="#f8f9fa">
+<h2>- Operaciones aritméticas</h2>
+<div class="fragment">
+<ol type="1">
+<li>Suma</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ol start="2" type="1">
+<li>Resta</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="dv">2</span> <span class="sc">-</span> <span class="dv">2</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ol start="3" type="1">
+<li>Multiplicación</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="dv">2</span> <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ol start="4" type="1">
+<li>División</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="dv">2</span> <span class="sc">/</span> <span class="dv">2</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ol start="5" type="1">
+<li>Raíz Cuadrada</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">sqrt</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.414214</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="operaciones-relacionales" class="slide level2 scrollable">
+<h2>- Operaciones Relacionales</h2>
+<div class="fragment">
+<ol type="1">
+<li>Igualdad</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="dv">2</span> <span class="sc">==</span> <span class="dv">2</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="st">"Q'bo"</span> <span class="sc">==</span> <span class="st">"Vemos"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ol start="2" type="1">
+<li>Distinto</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="dv">3</span> <span class="sc">!=</span> <span class="dv">2</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ol start="3" type="1">
+<li>Mayor que</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="dv">15</span> <span class="sc">&gt;</span> <span class="dv">15</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ol start="4" type="1">
+<li>Mayor o igual que</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="dv">15</span> <span class="sc">&gt;=</span> <span class="dv">5</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ol start="5" type="1">
+<li>Menor que</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="dv">15</span> <span class="sc">&lt;</span> <span class="dv">5</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ol start="6" type="1">
+<li>Menor o igual que</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="dv">15</span> <span class="sc">&lt;=</span> <span class="dv">15</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="asignación-de-objetos-a-variables-y-tipos-de-objetos" class="slide level2 scrollable" data-background-color="#f8f9fa">
+<h2>- Asignación de objetos a variables y tipos de objetos</h2>
+<div class="fragment">
+<ol type="1">
+<li>Entero</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>objeto <span class="ot">&lt;-</span> <span class="dv">2</span>L</span>
+<span id="cb25-2"><a></a><span class="fu">typeof</span>(objeto)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "integer"</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ol start="2" type="1">
+<li>Float (Double)</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>objeto2 <span class="ot">&lt;-</span> objeto <span class="sc">/</span> <span class="dv">3</span></span>
+<span id="cb27-2"><a></a>objeto2</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6666667</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="fu">typeof</span>(objeto2)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "double"</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ol start="3" type="1">
+<li>Cáracter</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>objeto3 <span class="ot">&lt;-</span> <span class="st">"Hola"</span></span>
+<span id="cb31-2"><a></a><span class="fu">typeof</span>(objeto3)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ol start="4" type="1">
+<li>Booleano</li>
+</ol>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "logical"</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="estructuras-básicas" class="slide level2 scrollable">
+<h2>- Estructuras básicas</h2>
+<div class="fragment">
+<ol type="1">
+<li>Vector numérico</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>objeto5 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>)</span>
+<span id="cb34-2"><a></a>objeto5</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2 4 6</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a><span class="fu">class</span>(objeto5)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "numeric"</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ol start="2" type="1">
+<li>Vector de carácteres</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a>objeto6 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Bienvenido"</span>, <span class="st">"al"</span>, <span class="st">"taller"</span>)</span>
+<span id="cb38-2"><a></a>objeto6</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Bienvenido" "al"         "taller"    </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a><span class="fu">class</span>(objeto6)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ol start="3" type="1">
+<li>Matriz</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a>objeto7 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>,</span>
+<span id="cb42-2"><a></a>                    <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>),</span>
+<span id="cb42-3"><a></a>                  <span class="at">nrow =</span> <span class="dv">2</span>, </span>
+<span id="cb42-4"><a></a>                  <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb42-5"><a></a></span>
+<span id="cb42-6"><a></a>objeto7</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3]
+[1,]    1    3    5
+[2,]    2    4    6</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a><span class="fu">class</span>(objeto7)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "matrix" "array" </code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ol start="4" type="1">
+<li>Data frame</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a>nombres <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Ana"</span>, <span class="st">"Luis"</span>, <span class="st">"Marta"</span>, <span class="st">"Juan"</span>)</span>
+<span id="cb46-2"><a></a>edades <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">22</span>, <span class="dv">21</span>, <span class="dv">23</span>)</span>
+<span id="cb46-3"><a></a>aprueba <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>)</span>
+<span id="cb46-4"><a></a></span>
+<span id="cb46-5"><a></a>clase <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(nombres, edades, aprueba)</span>
+<span id="cb46-6"><a></a>clase</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  nombres edades aprueba
+1     Ana     20    TRUE
+2    Luis     22   FALSE
+3   Marta     21    TRUE
+4    Juan     23    TRUE</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a></a><span class="fu">class</span>(clase)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "data.frame"</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="directorio" class="slide level2" data-background-color="#f8f9fa">
+<h2>- Directorio</h2>
+<p>Para poder conocer su directorio de trabajo, basta con la función <code>getwd()</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a></a><span class="fu">getwd</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "C:/Users/camil/OneDrive - Universidad Nacional de Colombia/Documentos/Camilo UNAL/GEA/GitHub/Taller-R/Taller"</code></pre>
+</div>
+</div>
+<p>Para poder ver los archivos y carpetas que tienen en dicho directorio, se usa la función <code>dir()</code></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a></a><span class="fu">dir</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "_extensions"                     "DiaposTallerR.qmd"              
+ [3] "DiaposTallerR.rmarkdown"         "dplyr.png"                      
+ [5] "interfaz.png"                    "posit.png"                      
+ [7] "rendimiento.png"                 "salud_mental.png"               
+ [9] "Social_media_impact_on_life.csv" "styles.css"                     </code></pre>
+</div>
+</div>
+<p>Si tienen los archivos con los que van a trabajar en otro directorio, entonces se usa <code>setwd()</code></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a></a><span class="fu">setwd</span>(<span class="st">"C:</span><span class="sc">\\</span><span class="st">Users</span><span class="sc">\\</span><span class="st">sofia</span><span class="sc">\\</span><span class="st">Downloads</span><span class="sc">\\</span><span class="st">Taller R versión 2"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="paquetes" class="slide level2">
+<h2>- Paquetes</h2>
+<p>Un <strong>paquete</strong> es un conjunto de funciones, datos y documentación que amplía las capacidades de R. Gracias a los paquetes, es posible realizar un montón de tareas de manera más sencilla.</p>
+<ul>
+<li><strong>readxl</strong>: importar archivos de Excel (.xlsx)</li>
+<li><strong>dplyr</strong>: manipulación y transformación de datos</li>
+<li><strong>ggplot2</strong>: visualización de datos</li>
+<li><strong>haven</strong>: importar archivos de Stata, SPSS y SAS</li>
+</ul>
+<h3 id="instalación-y-cargado-de-paquetes">- Instalación y cargado de paquetes</h3>
+<p>La instalación de un paquete se realiza una única vez en el equipo en el que se esté trabajando. Por otro lado, para poder usarlo, es necesario cargarlo en cada sesión de R.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a></a><span class="fu">install.packages</span>(<span class="st">"readxl"</span>) <span class="co"># Instalación</span></span>
+<span id="cb55-2"><a></a></span>
+<span id="cb55-3"><a></a><span class="fu">library</span>(readxl) <span class="co"># Se carga el paquete</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="tipos-de-archivos" class="slide level2">
+<h2>- Tipos de Archivos</h2>
+<p>Las bases de datos que se quieran trabajar pueden ser de distintos formatos:</p>
+<ul>
+<li>Texto plano: CSV (<em>.csv</em>), TXT (<em>.txt</em>)</li>
+<li>Hojas de cálculo: Excel (<em>.xlsx</em>)</li>
+<li>Otros software: Stata (<em>.dta</em>), SAS (<em>.sas7bdat</em>)</li>
+<li>Formatos de R: RData (<em>.RData</em>), Rda (<em>.rda</em>)</li>
+<li>Formatos de Big Data: Parquet (<em>.parquet</em>)</li>
+</ul>
+<p>Algunas funciones para importar archivos vienen preinstalados en R, pero otras requieren instalar <strong>paquetes</strong> adicionales. Por ejemplo, uno de los tipos de archivo más comunes es el formato <em>.xlsx</em>.</p>
+</section></section>
+<section>
+<section id="importación-de-archivos" class="title-slide slide level1 center" data-background-color="#f8f9fa">
+<h1>2. Importación de archivos</h1>
+
+</section>
+<section id="base-de-datos-a-trabajar" class="slide level2">
+<h2>- Base de datos a trabajar</h2>
+<p>Los datos que se usarán en esta sesión provienen de <strong>Kaggle</strong>. Estos los pueden encontrar el siguiente <a href="https://www.kaggle.com/datasets/sumeakash/impact-of-social-media-on-health">link</a>.</p>
+<p>En esta base de datos se cuenta con información sobre el impacto de las plataformas digitales y la IA sobre los estudiantes, tanto en su vida personal como académica.</p>
+<h3 id="descripción-de-las-variables">Descripción de las variables</h3>
+<div id="tbl-variables" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-variables-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;1: Descripción de variables del dataset
+</figcaption>
+<div aria-describedby="tbl-variables-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Variable</th>
+<th style="text-align: left;">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Student_ID</strong></td>
+<td style="text-align: left;">Identificador único para cada estudiante.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Age</strong></td>
+<td style="text-align: left;">Edad del estudiante (en años).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Gender</strong></td>
+<td style="text-align: left;">Género del estudiante (Masculino/Femenino).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Academic_Level</strong></td>
+<td style="text-align: left;">Nivel educativo (Escuela / College / Universidad).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Country</strong></td>
+<td style="text-align: left;">País o ubicación del estudiante.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Avg_Daily_Usage_Hours</strong></td>
+<td style="text-align: left;">Promedio de horas diarias en plataformas digitales/IA.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Most_Used_Platform</strong></td>
+<td style="text-align: left;">Plataforma usada con más frecuencia (ej. ChatGPT, Gemini).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Affects_Academic_Performance</strong></td>
+<td style="text-align: left;">Impacto en el rendimiento (Mejora / Sin cambio / Declive).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Sleep_Hours_Per_Night</strong></td>
+<td style="text-align: left;">Duración promedio del sueño por noche.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Mental_Health_Score</strong></td>
+<td style="text-align: left;">Puntaje que representa el bienestar mental.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Overall_Impact</strong></td>
+<td style="text-align: left;">Efecto general del uso (Positivo / Neutral / Negativo).</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="importación-de-la-base-de-datos" class="slide level2">
+<h2>- Importación de la base de datos</h2>
+<p>Al descargar el archivo, es posible ver su extensión (<em>.csv</em>). De esta forma, se usa la función <code>read.csv()</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"Social_media_impact_on_life.csv"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Ahora, miramos el tipo de objeto y cómo podemos obtener una rápida visualización de su contenido con las funciones <code>class()</code> y <code>str()</code> o <code>head()</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a></a><span class="fu">class</span>(df)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "data.frame"</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a></a><span class="fu">str</span>(df)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   1705 obs. of  11 variables:
+ $ Student_ID                  : int  232 564 788 686 608 370 862 520 703 33 ...
+ $ Age                         : int  21 23 22 18 24 19 22 21 24 19 ...
+ $ Gender                      : chr  "Male" "Female" "Male" "Male" ...
+ $ Academic_Level              : chr  "Undergraduate" "Undergraduate" "Graduate" "Undergraduate" ...
+ $ Country                     : chr  "Other" "Other" "Canada" "Other" ...
+ $ Avg_Daily_Usage_Hours       : num  4 1.6 4.6 7 7.5 4.1 8 6 4.7 3.6 ...
+ $ Most_Used_Platform          : chr  "Facebook" "LinkedIn" "Instagram" "Snapchat" ...
+ $ Affects_Academic_Performance: chr  "No" "No" "No" "Yes" ...
+ $ Sleep_Hours_Per_Night       : num  6.7 8.6 6.7 5.4 5 6.8 5.2 5.7 7 8.1 ...
+ $ Mental_Health_Score         : num  6.8 7.6 7 5.3 4.4 6.8 5.3 4.7 6.2 8.6 ...
+ $ Overall_Impact              : chr  "Neutral" "Positive" "Neutral" "Negative" ...</code></pre>
+</div>
+</div>
+<p>Si queremos ver sus diez primeras filas:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a></a><span class="fu">head</span>(df, <span class="at">n =</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Student_ID Age Gender Academic_Level Country Avg_Daily_Usage_Hours
+1         232  21   Male  Undergraduate   Other                   4.0
+2         564  23 Female  Undergraduate   Other                   1.6
+3         788  22   Male       Graduate  Canada                   4.6
+4         686  18   Male  Undergraduate   Other                   7.0
+5         608  24 Female    High School   Other                   7.5
+6         370  19 Female    High School   Other                   4.1
+7         862  22 Female       Graduate   Other                   8.0
+8         520  21 Female       Graduate   Other                   6.0
+9         703  24   Male  Undergraduate     USA                   4.7
+10         33  19   Male    High School   Other                   3.6
+   Most_Used_Platform Affects_Academic_Performance Sleep_Hours_Per_Night
+1            Facebook                           No                   6.7
+2            LinkedIn                           No                   8.6
+3           Instagram                           No                   6.7
+4            Snapchat                          Yes                   5.4
+5            Facebook                          Yes                   5.0
+6             Twitter                          Yes                   6.8
+7           Instagram                          Yes                   5.2
+8            Facebook                          Yes                   5.7
+9             YouTube                           No                   7.0
+10             TikTok                           No                   8.1
+   Mental_Health_Score Overall_Impact
+1                  6.8        Neutral
+2                  7.6       Positive
+3                  7.0        Neutral
+4                  5.3       Negative
+5                  4.4       Negative
+6                  6.8        Neutral
+7                  5.3       Negative
+8                  4.7       Negative
+9                  6.2        Neutral
+10                 8.6       Positive</code></pre>
+</div>
+</div>
+</section></section>
+<section>
+<section id="procesamiento-y-análisis-1" class="title-slide slide level1 center">
+<h1>3. Procesamiento y Análisis</h1>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>Se utilizará el paquete <strong>{dplyr}</strong> para una manipulación de datos eficiente:</p>
+<ul>
+<li><strong>Filtrado y Selección:</strong> Limpieza precisa de observaciones y variables.</li>
+<li><strong>Transformación:</strong> Creación de nuevas variables.</li>
+<li><strong>Encadenamiento:</strong> Uso de <em>pipes</em> facilita la creación de flujos de trabajo claros y legibles.</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="dplyr.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="primera-herramienta-select" class="slide level2" data-background-color="#f8f9fa">
+<h2>- Primera herramienta: <code>select()</code></h2>
+<h3 id="a.-filtrando-el-ruido">A. Filtrando el ruido</h3>
+<p>La función <code>select()</code> de <code>dplyr</code> sirve para elegir columnas específicas de un conjunto de datos.</p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><strong>La pregunta:</strong> ¿Qué variables son clave para medir el impacto digital?</p>
+<div class="column" style="width:55%;">
+
+
+</div></div></div>
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'fade',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'slide',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copiado");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copiado");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
