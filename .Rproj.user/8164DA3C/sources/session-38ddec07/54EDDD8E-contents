@@ -8,10 +8,8 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - text: Taller de R
-        menu:
-          - text: Desde cero
-            href: Taller/DiaposTallerR.qmd
+      - text: R Desde Cero
+        href: Taller/DiaposTallerR.qmd
       
       
 format:

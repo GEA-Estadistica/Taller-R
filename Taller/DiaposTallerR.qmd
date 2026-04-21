@@ -1,6 +1,4 @@
 ---
-title: "Taller de R"
-
 format:
   revealjs:
     theme: solarized

@@ -3,7 +3,7 @@
     "path": "C:/Users/camil/OneDrive - Universidad Nacional de Colombia/Documentos/Camilo UNAL/GEA/GitHub/Taller-R/_quarto.yml",
     "project_path": "_quarto.yml",
     "type": "yaml",
-    "hash": "672533559",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1776785671213.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "21,13",
+        "cursorPosition": "10,17",
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1776787924,
+    "lastKnownWriteTime": 1776788331,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1776787924217,
+    "last_content_update": 1776788331516,
     "read_only": false,
     "read_only_alternatives": []
 }
