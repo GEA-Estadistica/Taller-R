@@ -143,52 +143,80 @@ Para poder continuar con el taller, es necesario que:
 
 
 
+## - Operaciones {background-color="#f8f9fa"}
+
+Supongamos que estamos analizando nuestros hábitos del uso del celular y demás actividades.
+
+![](habitos.jpg){fig-align="center" width="100%"}
+
+**¿Cómo podemos usar R para tener un control de nuestros hábitos y llevar las cuentas?**
+
 ## - Operaciones aritméticas {background-color="#f8f9fa"}
 
 ::: {.fragment}
 
-1. Suma
+0. Asignación: guardemos nuestras horas de uso de redes sociales y las horas de sueño.
 
 ```{r}
 #| echo: true
 #| code-line-numbers: true
 
-2 + 2
+redes <- 3
+sueno <- 7
+```
+
+::: 
+
+
+
+::: {.fragment}
+
+1. Suma: ¿Cuántas horas en total representan ambas variables?
+
+```{r}
+#| echo: true
+#| code-line-numbers: true
+
+redes + sueno
 ```
 
 ::: 
 
 ::: {.fragment}
 
-2. Resta
+2. Resta: Si se recomienda dormir 8 horas, ¿cuántas horas nos faltan para llegar a ese número?
 
 ```{r}
 #| echo: true
 
-2 - 2
+8 - sueno
 ```
 
 ::: 
 
 ::: {.fragment}
-3. Multiplicación
+3. Multiplicación: Si se usan redes sociales tres horas diarias, ¿cuánto tiempo le hemos dedicado en una semana?
 
 ```{r}
 #| echo: true
 
-2 * 2
+7 * redes
 ```
 :::
 
 
 ::: {.fragment}
 
-4. División
+4. División: Si entre dos amigos se tienen 5 y 7 horas de sueño, ¿cuánto duerme cada uno en promedio?
 
 ```{r}
 #| echo: true
 
-2 / 2
+sueno1 <- 5
+sueno2 <- 7
+
+(sueno1 + sueno2) / 2
+
 ```
 
 :::
@@ -208,69 +236,80 @@ sqrt(2)
 
 ## - Operaciones Relacionales
 
-::: {.fragment}
-
-1. Igualdad
+Una amiga nuestra quiere que analicemos sus hábitos.
 
 ```{r}
 #| echo: true
-2 == 2
-"Q'bo" == "Vemos"
+uso_redes <- 6
+horas_sueno <- 5
+recomendado_sueno <- 8
+```
+
+
+::: {.fragment}
+
+1. Igualdad: ¿Usa las mismas horas de redes que duerme?
+
+```{r}
+#| echo: true
+uso_redes == horas_sueno
 ```
 :::
 
 ::: {.fragment}
 
-2. Distinto
+2. Distinto: ¿Las horas que duerme son diferentes a las recomendadas?
 
 ```{r}
 #| echo: true
-3 != 2
+
+horas_sueno != recomendado_sueno
 
 ```
 :::
 
 ::: {.fragment}
 
-3. Mayor que
+3. Mayor que: ¿El uso de redes es mayor que las horas de sueño?
 
 ```{r}
 #| echo: true
 
-15 > 15
+uso_redes > horas_sueno
 ```
 :::
 
 ::: {.fragment}
-4. Mayor o igual que
+4. Mayor o igual que: ¿La persona duerme al menos 5 horas?
 
 ```{r}
 #| echo: true
 
-15 >= 5
-```
-
-:::
-
-::: {.fragment}
-
-5. Menor que
-
-```{r}
-#| echo: true
-
-15 < 5
+horas_sueno >= 5
 ```
 
 :::
 
 ::: {.fragment}
 
-6. Menor o igual que
+5. Menor que: ¿Duerme menos de lo recomendado?
 
 ```{r}
 #| echo: true
-15 <= 15
+
+horas_sueno < recomendado_sueno
+
+```
+
+:::
+
+::: {.fragment}
+
+6. Menor o igual que: ¿Usa redes 6 horas o menos?
+
+```{r}
+#| echo: true
+uso_redes <= 6
 ```
 
 
@@ -282,12 +321,12 @@ sqrt(2)
 
 ::: {.fragment}
 
-1. Entero
+1. Entero: 
 
 ```{r}
 #| echo: true
-objeto <- 2L
-typeof(objeto)
+edad <- 18L
+typeof(edad)
 ```
 
 :::
@@ -298,9 +337,8 @@ typeof(objeto)
 
 ```{r}
 #| echo: true
-objeto2 <- objeto / 3
-objeto2
-typeof(objeto2)
+promedio_sueno <- 6.5
+typeof(promedio_sueno)
 ```
 
 :::
@@ -312,8 +350,8 @@ typeof(objeto2)
 ```{r}
 #| echo: true
 
-objeto3 <- "Hola"
-typeof(objeto3)
+red_favorita <- "Instagram"
+typeof(red_favorita)
 ```
 
 :::
@@ -323,8 +361,10 @@ typeof(objeto3)
 4. Booleano
 
 ```{r}
-objeto4 <- TRUE
-typeof(objeto4)
+#| echo: true
+
+duerme_bien <- FALSE
+typeof(duerme_bien)
 
 ```
 :::
@@ -339,11 +379,9 @@ typeof(objeto4)
 
 ```{r}
 #| echo: true
-
-objeto5 <- c(2, 4, 6)
-objeto5
-
-class(objeto5)
+horas_redes <- c(2, 4, 6)
+horas_redes
+class(horas_redes)
 ```
 :::
 
@@ -354,10 +392,9 @@ class(objeto5)
 ```{r}
 #| echo: true
 
-objeto6 <- c("Bienvenido", "al", "taller")
-objeto6
-
-class(objeto6)
+plataformas <- c("Instagram", "TikTok", "WhatsApp")
+plataformas
+class(plataformas)
 ```
 :::
 
@@ -368,14 +405,12 @@ class(objeto6)
 ```{r}
 #| echo: true
 
-objeto7 <- matrix(c(1, 2, 3,
-                    4, 5, 6),
-                  nrow = 2, 
+habitos <- matrix(c(5, 6, 4,
+                    7, 5, 6),
+                  nrow = 2,
                   ncol = 3)
-
-objeto7
-
-class(objeto7)
+habitos
+class(habitos)
 
 ```
 
@@ -388,18 +423,14 @@ class(objeto7)
 ```{r}
 #| echo: true
 nombres <- c("Ana", "Luis", "Marta", "Juan")
-edades <- c(20, 22, 21, 23)
-aprueba <- c(TRUE, FALSE, TRUE, TRUE)
+horas_redes <- c(5, 7, 3, 6)
+horas_sueno <- c(6, 5, 8, 6)
+estres <- c(TRUE, TRUE, FALSE, TRUE)
 
-clase <- data.frame(nombres, edades, aprueba)
-clase
+datos <- data.frame(nombres, horas_redes, horas_sueno, estres)
+datos
 ```
 
-
-```{r}
-#| echo: true
-class(clase)
-```
 
 :::
 
@@ -522,48 +553,35 @@ Si queremos ver sus diez primeras filas:
 head(df, n = 10)
 ```
 
-
 # 3. Procesamiento y Análisis
 
-::: {.columns}
-
+::::: columns
 ::: {.column width="60%"}
 Se utilizará el paquete **{dplyr}** para una manipulación de datos eficiente:
 
-* **Filtrado y Selección:** Limpieza precisa de observaciones y variables.
-* **Transformación:** Creación de nuevas variables.
-* **Encadenamiento:** Uso de *pipes* facilita la creación de flujos de trabajo claros y legibles.
+-   **Filtrado y Selección:** Limpieza precisa de observaciones y variables.
+-   **Transformación:** Creación de nuevas variables.
+-   **Encadenamiento:** Uso de *pipes* facilita la creación de flujos de trabajo claros y legibles.
 :::
 
 ::: {.column width="40%"}
-![](dplyr.png){width=80% fig-align="center"}
+![](dplyr.png){width="80%" fig-align="center"}
 :::
+:::::
 
-:::
-
----
+------------------------------------------------------------------------
 
 ## - Primera herramienta: `select()` {background-color="#f8f9fa"}
 
-### A. Filtrando el ruido 
+### A. Filtrando el ruido
 
-La función `select()` de `dplyr` sirve para elegir columnas específicas de un conjunto de datos.
+La función `select()` de `dplyr` sirve para elegir columnas específicas de un conjunto de datos. 
 
-::: {.columns}
-::: {.column width="45%"}
-**La pregunta:**
-¿Qué variables son clave para medir el impacto digital?
+**La pregunta:** ¿Qué variables son clave para medir el impacto digital?
 
-
-
-::: {.column width="55%"}
 ```{r}
-
-#setwd("C:\\Users\\sofia\\Downloads\\Taller R versión 2")
-
-library(readr)
+#| echo: true
 library(dplyr)
-df <- read_csv("Social_media_impact_on_life.csv")
 
 df_relevante <- df %>% 
   select(Age, Gender, Mental_Health_Score, 
@@ -575,4 +593,118 @@ df_limpio <- df %>%
   select(-Student_ID)
 ```
 
-  
+------------------------------------------------------------------------
+
+## - Segunda herramienta: `filter()`
+
+La función `filter()` de `dplyr` sirve para filtrar valores específicos de las columnas que deseemos:
+
+
+**La pregunta:** ¿Cómo cambia el puntaje medio de salud mental en estudiantes que usan redes más de 5 horas al día?
+
+
+```{r}
+#| echo: true
+
+mean(df$Mental_Health_Score)
+
+df1 = df %>% 
+  filter(Avg_Daily_Usage_Hours > 5) %>% 
+  select(Avg_Daily_Usage_Hours,Mental_Health_Score) 
+
+mean(df1$Mental_Health_Score)  
+
+```
+
+-------------------------------------------------------------
+
+## Algunos ejercicios:
+
+**La pregunta:** ¿Cuáles son las personas que registran poco sueño (menos de seis horas) y alto uso de redes (más de cuatro horas)?
+
+::: fragment
+```{r}
+#| echo: true
+#| code-line-numbers: true
+#| results: hold
+
+df %>%
+  filter(Sleep_Hours_Per_Night < 6,
+         Avg_Daily_Usage_Hours > 4)
+
+```
+:::
+
+**La pregunta:** ¿Cuáles son las personas que registran poco sueño (menos de seis horas) y alto uso de redes (más de cuatro horas)?
+
+::: fragment
+
+```{r}
+#| echo: true
+#| code-line-numbers: true
+#| results: hold
+
+df %>%
+  filter(Sleep_Hours_Per_Night < 6,
+         Avg_Daily_Usage_Hours > 4)
+
+```
+
+:::
+
+-------------------------------------------------------------
+
+## - Tercera y cuarta herramienta: `summarize()` y `group_by()`
+
+Las funciones `group_by()` y `summarize()` de `dplyr` van siempre de la mano, la primera de ellas nos permite agrupar por una característica y la segunda de ellas nos permiten resumir a los grupos en alguna medida.
+
+**La pregunta:** ¿Cuál es el promedio del puntaje de salud mental por género?
+
+
+```{r}
+#| echo: true
+
+df %>% 
+  group_by(Gender) %>%
+  summarise(Prom = mean(Mental_Health_Score))
+
+```
+
+--------
+
+## Algunos ejercicios:
+
+**La pregunta:** ¿Cómo varía el uso promedio de redes según nivel académico?
+
+::: fragment
+```{r}
+#| echo: true
+#| code-line-numbers: true
+#| results: hold
+
+df %>% 
+  group_by(Academic_Level) %>%
+  summarise(Prom = mean(Avg_Daily_Usage_Hours))
+
+```
+:::
+
+**La pregunta:** ¿Qué aplicación tiene más reportes con impacto negativo?
+
+::: fragment
+
+```{r}
+#| echo: true
+#| code-line-numbers: true
+#| results: hold
+
+df %>% 
+  filter(Overall_Impact == "Negative") %>% 
+  group_by(Most_Used_Platform) %>% summarise(Num = n()) %>% 
+  filter(Num == max(Num))
+
+```
+
+:::
+
+
