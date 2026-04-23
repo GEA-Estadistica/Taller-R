@@ -39,14 +39,14 @@
     "href": "Taller/DiaposTallerR.html#operaciones-aritméticas",
     "title": "Taller R",
     "section": "- Operaciones aritméticas",
-    "text": "- Operaciones aritméticas\n\n\nAsignación: guardemos nuestras horas de uso de redes sociales y las horas de sueño.\n\n\nredes &lt;- 3\nsueno &lt;- 7\n\n\n\n\nSuma: ¿Cuántas horas en total representan ambas variables?\n\n\nredes + sueno\n\n[1] 10\n\n\n\n\n\nResta: Si se recomienda dormir 8 horas, ¿cuántas horas nos faltan para llegar a ese número?\n\n\n8 - sueno\n\n[1] 1\n\n\n\n\n\nMultiplicación: Si se usan redes sociales tres horas diarias, ¿cuánto tiempo le hemos dedicado en una semana?\n\n\n7 * redes\n\n[1] 21\n\n\n\n\n\nDivisión: Si entre dos amigos se tienen 5 y 7 horas de sueño, ¿cuánto duerme cada uno en promedio?\n\n\nsueno1 &lt;- 5\nsueno2 &lt;- 7\n\n(sueno1 + sueno2) / 2\n\n[1] 6\n\n\n\n\n\nRaíz Cuadrada\n\n\nsqrt(2)\n\n[1] 1.414214"
+    "text": "- Operaciones aritméticas\n\nGuardemos nuestras horas de uso de redes sociales y las horas de sueño.\n\n\n\nredes &lt;- 3\nsueno &lt;- 7\n\n\n\n¿Cuántas horas en total representan ambas variables?\n\n\n\nredes + sueno\n\n[1] 10\n\n\n\n\nSi se recomienda dormir 8 horas, ¿cuántas horas nos faltan para llegar a ese número?\n\n\n\n8 - sueno\n\n[1] 1\n\n\n\n\nSi se usan redes sociales tres horas diarias, ¿cuánto tiempo le hemos dedicado en una semana?\n\n\n\n7 * redes\n\n[1] 21\n\n\n\n\nSi entre dos amigos se tienen 5 y 7 horas de sueño, ¿cuánto duerme cada uno en promedio?\n\n\n\nsueno1 &lt;- 5\nsueno2 &lt;- 7\n\n(sueno1 + sueno2) / 2\n\n[1] 6\n\n\n\n\nRaíz Cuadrada\n\n\n\nsqrt(2)\n\n[1] 1.414214"
   },
   {
     "objectID": "Taller/DiaposTallerR.html#operaciones-relacionales",
     "href": "Taller/DiaposTallerR.html#operaciones-relacionales",
     "title": "Taller R",
     "section": "- Operaciones Relacionales",
-    "text": "- Operaciones Relacionales\nUna amiga nuestra quiere que analicemos sus hábitos.\n\nuso_redes &lt;- 6\nhoras_sueno &lt;- 5\nrecomendado_sueno &lt;- 8\n\n\n\nIgualdad: ¿Usa las mismas horas de redes que duerme?\n\n\nuso_redes == horas_sueno\n\n[1] FALSE\n\n\n\n\n\nDistinto: ¿Las horas que duerme son diferentes a las recomendadas?\n\n\nhoras_sueno != recomendado_sueno\n\n[1] TRUE\n\n\n\n\n\nMayor que: ¿El uso de redes es mayor que las horas de sueño?\n\n\nuso_redes &gt; horas_sueno\n\n[1] TRUE\n\n\n\n\n\nMayor o igual que: ¿La persona duerme al menos 5 horas?\n\n\nhoras_sueno &gt;= 5\n\n[1] TRUE\n\n\n\n\n\nMenor que: ¿Duerme menos de lo recomendado?\n\n\nhoras_sueno &lt; recomendado_sueno\n\n[1] TRUE\n\n\n\n\n\nMenor o igual que: ¿Usa redes 6 horas o menos?\n\n\nuso_redes &lt;= 6\n\n[1] TRUE"
+    "text": "- Operaciones Relacionales\nNuestra amiga, Paula, nuestra quiere que analicemos sus hábitos.\n\nuso_redes &lt;- 6\nhoras_sueno &lt;- 5\nrecomendado_sueno &lt;- 8\nejercicio &lt;- TRUE\n\n\n¿Laura usa las mismas horas de redes que duerme?\n\n\n\nuso_redes == horas_sueno\n\n[1] FALSE\n\n\n\n\n¿Las horas que duerme son diferentes a las recomendadas?\n\n\n\nhoras_sueno != recomendado_sueno\n\n[1] TRUE\n\n\n\n\n¿El uso de redes es mayor que las horas de sueño?\n\n\n\nuso_redes &gt; horas_sueno\n\n[1] TRUE\n\n\n\n\n¿Paula duerme al menos 5 horas?\n\n\n\nhoras_sueno &gt;= 5\n\n[1] TRUE\n\n\n\n\n¿Duerme menos de lo recomendado?\n\n\n\nhoras_sueno &lt; recomendado_sueno\n\n[1] TRUE\n\n\n\n\n¿Paula usa redes 6 horas o menos?\n\n\n\nuso_redes &lt;= 6\n\n[1] TRUE"
   },
   {
     "objectID": "Taller/DiaposTallerR.html#asignación-de-objetos-a-variables-y-tipos-de-objetos",
@@ -60,7 +60,7 @@
     "href": "Taller/DiaposTallerR.html#estructuras-básicas",
     "title": "Taller R",
     "section": "- Estructuras básicas",
-    "text": "- Estructuras básicas\n\n\nVector numérico\n\n\nhoras_redes &lt;- c(2, 4, 6)\nhoras_redes\n\n[1] 2 4 6\n\nclass(horas_redes)\n\n[1] \"numeric\"\n\n\n\n\n\nVector de carácteres\n\n\nplataformas &lt;- c(\"Instagram\", \"TikTok\", \"WhatsApp\")\nplataformas\n\n[1] \"Instagram\" \"TikTok\"    \"WhatsApp\" \n\nclass(plataformas)\n\n[1] \"character\"\n\n\n\n\n\nMatriz\n\n\nhabitos &lt;- matrix(c(5, 6, 4,\n                    7, 5, 6),\n                  nrow = 2,\n                  ncol = 3)\nhabitos\n\n     [,1] [,2] [,3]\n[1,]    5    4    5\n[2,]    6    7    6\n\nclass(habitos)\n\n[1] \"matrix\" \"array\" \n\n\n\n\n\nData frame\n\n\nnombres &lt;- c(\"Ana\", \"Luis\", \"Marta\", \"Juan\")\nhoras_redes &lt;- c(5, 7, 3, 6)\nhoras_sueno &lt;- c(6, 5, 8, 6)\nestres &lt;- c(TRUE, TRUE, FALSE, TRUE)\n\ndatos &lt;- data.frame(nombres, horas_redes, horas_sueno, estres)\ndatos\n\n  nombres horas_redes horas_sueno estres\n1     Ana           5           6   TRUE\n2    Luis           7           5   TRUE\n3   Marta           3           8  FALSE\n4    Juan           6           6   TRUE"
+    "text": "- Estructuras básicas\n\nVector numérico: Nuestros amigos Juan y Carlos también quieren que analicemos sus hábitos, además de Paula. Paula usa su celular 6 horas, Juan 2 horas y Carlos 2 horas. Además, nos dan información de sus horas de sueño.\n\n\n\nhoras_redes &lt;- c(6, 8, 2)\nhoras_redes\n\n[1] 6 8 2\n\nclass(horas_redes)\n\n[1] \"numeric\"\n\nhoras_sueno &lt;- c(5, 6, 7)\n\n\n\nVector de carácteres: Les preguntamos en el mismo orden por su red social favorita y responden Instagram, Tik Tok y WhatsApp.\n\n\n\nplataformas &lt;- c(\"Instagram\", \"Tik Tok\", \"WhatsApp\")\nplataformas\n\n[1] \"Instagram\" \"Tik Tok\"   \"WhatsApp\" \n\nclass(plataformas)\n\n[1] \"character\"\n\n\n\n\nMatriz: Ahora, ¿cómo guardar las horas de uso de redes sociales y sueño de cada uno?\n\n\n\nhabitos &lt;- matrix(c(horas_redes,\n                    horas_sueno), \n                  nrow = 2, ncol = 3, byrow = TRUE)\nhabitos\n\n     [,1] [,2] [,3]\n[1,]    6    8    2\n[2,]    5    6    7\n\nclass(habitos)\n\n[1] \"matrix\" \"array\" \n\n\n\n\nData frame: Guardemos la información nuestra y la de nuestros amigos.\n\n\n\nnombres &lt;- c(\"Camilo\", \"Paula\", \"Juan\", \"Carlos\")\nhoras_redes &lt;- c(3, 6, 8, 2)\nhoras_sueno &lt;- c(7, 5, 6, 7)\nestres &lt;- c(TRUE, TRUE, TRUE, FALSE)\n\ndatos &lt;- data.frame(nombres, horas_redes, horas_sueno, estres)\ndatos\n\n  nombres horas_redes horas_sueno estres\n1  Camilo           3           7   TRUE\n2   Paula           6           5   TRUE\n3    Juan           8           6   TRUE\n4  Carlos           2           7  FALSE"
   },
   {
     "objectID": "Taller/DiaposTallerR.html#directorio",
@@ -74,7 +74,7 @@
     "href": "Taller/DiaposTallerR.html#paquetes",
     "title": "Taller R",
     "section": "- Paquetes",
-    "text": "- Paquetes\nUn paquete es un conjunto de funciones, datos y documentación que amplía las capacidades de R. Gracias a los paquetes, es posible realizar un montón de tareas de manera más sencilla.\n\nreadxl: importar archivos de Excel (.xlsx)\ndplyr: manipulación y transformación de datos\nggplot2: visualización de datos\nhaven: importar archivos de Stata, SPSS y SAS\n\n- Instalación y cargado de paquetes\nLa instalación de un paquete se realiza una única vez en el equipo en el que se esté trabajando. Por otro lado, para poder usarlo, es necesario cargarlo en cada sesión de R.\n\ninstall.packages(\"readxl\") # Instalación\n\nlibrary(readxl) # Se carga el paquete"
+    "text": "- Paquetes\nUn paquete es un conjunto de funciones, datos y documentación que amplía las capacidades de R. Gracias a los paquetes, es posible realizar un montón de tareas de manera más sencilla.\n\nreadxl: importar archivos de Excel (.xlsx)\ndplyr: manipulación y transformación de datos\nggplot2: visualización de datos\nhaven: importar archivos de Stata, SPSS y SAS\n\n- Instalación y cargado de paquetes\nLa instalación de un paquete se realiza una única vez en el equipo en el que se esté trabajando. Por otro lado, para poder usarlo, es necesario cargarlo en cada sesión de R.\n\ninstall.packages(\"dplyr\") # Instalación\n\nlibrary(dplyr) # Se carga el paquete\n\n?select"
   },
   {
     "objectID": "Taller/DiaposTallerR.html#tipos-de-archivos",
@@ -180,5 +180,40 @@
     "title": "Taller R",
     "section": "- Operaciones",
     "text": "- Operaciones\nSupongamos que estamos analizando nuestros hábitos del uso del celular y demás actividades.\n\n¿Cómo podemos usar R para tener un control de nuestros hábitos y llevar las cuentas?"
+  },
+  {
+    "objectID": "Taller/DiaposTallerR.html#operadores-lógicos",
+    "href": "Taller/DiaposTallerR.html#operadores-lógicos",
+    "title": "Taller R",
+    "section": "- Operadores Lógicos",
+    "text": "- Operadores Lógicos\n\n\n¿Nuestra amiga duerme poco y usa muchas redes?\n\n\nhoras_sueno &lt; 8 & uso_redes &gt; 4\n\n[1] TRUE\n\n\n\n\n¿Paula duerme bien o hace ejercicio?\n\n\n\nhoras_sueno &gt;= 8 | ejercicio == TRUE\n\n[1] TRUE\n\n\n\n\n¿No hace ejercicio?\n\n\n\n!ejercicio\n\n[1] FALSE"
+  },
+  {
+    "objectID": "Taller/DiaposTallerR.html#tipos-de-objetos",
+    "href": "Taller/DiaposTallerR.html#tipos-de-objetos",
+    "title": "Taller R",
+    "section": "- Tipos de objetos",
+    "text": "- Tipos de objetos\n\nEntero: Ahora guardemos cuántos créditos tenemos inscritos.\n\n\n\ncreditos_inscritos &lt;- 12L\ntypeof(creditos_inscritos)\n\n[1] \"integer\"\n\n\n\n\nDouble: ¿Cuántas horas le dedicamos a estudiar en un día cualquiera?\n\n\n\npromedio_sueno &lt;- 2.5\ntypeof(promedio_sueno)\n\n[1] \"double\"\n\n\n\n\nCáracter: ¿Cuál es nuestra red social favorita?\n\n\n\nred_favorita &lt;- \"Instagram\"\ntypeof(red_favorita)\n\n[1] \"character\"\n\n\n\n\nBooleano: ¿Nos sentimos estresados frecuentemente?\n\n\n\nestres &lt;- TRUE\ntypeof(estres)\n\n[1] \"logical\""
+  },
+  {
+    "objectID": "Taller/DiaposTallerR.html#estadísticas-de-nuestros-hábitos",
+    "href": "Taller/DiaposTallerR.html#estadísticas-de-nuestros-hábitos",
+    "title": "Taller R",
+    "section": "Estadísticas de nuestros hábitos",
+    "text": "Estadísticas de nuestros hábitos\n¿Cómo analizamos nuestros datos de horas de sueño, uso de redes sociales, estudio y ejercicio?\nSi hemos registrado nuestras horas de sueño y uso del celular de la última semana, responde a las siguientes preguntas:\n\n¿Cómo resumes tus horas de sueño de la semana con un solo número? Pista: mean()\n¿Tus horas de sueño cambian mucho o son similares cada día? Pista: sd()\n¿Cual fue el día en el que más horas la pasamos en redes sociales? Pista: max()\n\n\nsueno_semana &lt;- c(6, 7, 5, 8, 6, 9, 7)\nredes_semana &lt;- c(3, 4, 6, 2, 5, 4, 3)"
+  },
+  {
+    "objectID": "Taller/DiaposTallerR.html#section",
+    "href": "Taller/DiaposTallerR.html#section",
+    "title": "Taller R",
+    "section": "",
+    "text": "es un lenguaje de programación usado para explorar, analizar y comunicar datos.\n\nOrganizar información\nAnalizar datos\nCrear gráficos\nComunicar información."
+  },
+  {
+    "objectID": "Taller/DiaposTallerR.html#un-lenguaje-para-trabajar-con-datos",
+    "href": "Taller/DiaposTallerR.html#un-lenguaje-para-trabajar-con-datos",
+    "title": "Taller R",
+    "section": "Un lenguaje para trabajar con datos",
+    "text": "Un lenguaje para trabajar con datos\n\n es un lenguaje de programación usado para explorar, analizar y comunicar datos.\n\nOrganizar información\nAnalizar datos\nCrear gráficos\nComunicar información."
   }
 ]

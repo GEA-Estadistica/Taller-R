@@ -122,6 +122,26 @@ Hoy los invitamos a ir más allá: analizaremos un **conjunto de datos real** pa
 
 :::
 
+# 0. ¿Qué es {{< fa brands r-project >}}?
+
+## Un lenguaje para trabajar con datos
+
+::: {.center}
+
+
+{{< fa brands r-project >}} es un lenguaje de programación usado para **explorar, analizar y comunicar datos**.
+
+::: {.incremental}
+
+- Organizar información
+- Analizar datos
+- Crear gráficos
+- Comunicar información.
+
+:::
+
+:::
+
 # 1. Preparación del entorno {{< fa brands r-project >}} {background-color="#f8f9fa"}
 
 ## - Instalación de {{< fa brands r-project >}} {background-color="#f8f9fa"}
@@ -141,298 +161,6 @@ Para poder continuar con el taller, es necesario que:
 
 ![Interfaz de RStudio. Fuente: [ICESI](https://www.icesi.edu.co/editorial/empezando-usar-web/PartesR.html)](interfaz.png){fig-align="center" width="100%"}
 
-
-
-## - Operaciones {background-color="#f8f9fa"}
-
-Supongamos que estamos analizando nuestros hábitos del uso del celular y demás actividades.
-
-![](habitos.jpg){fig-align="center" width="100%"}
-
-**¿Cómo podemos usar R para tener un control de nuestros hábitos y llevar las cuentas?**
-
-## - Operaciones aritméticas {background-color="#f8f9fa"}
-
-::: {.fragment}
-
-0. Asignación: guardemos nuestras horas de uso de redes sociales y las horas de sueño.
-
-```{r}
-#| echo: true
-#| code-line-numbers: true
-
-redes <- 3
-sueno <- 7
-```
-
-::: 
-
-
-
-::: {.fragment}
-
-1. Suma: ¿Cuántas horas en total representan ambas variables?
-
-```{r}
-#| echo: true
-#| code-line-numbers: true
-
-redes + sueno
-```
-
-::: 
-
-::: {.fragment}
-
-2. Resta: Si se recomienda dormir 8 horas, ¿cuántas horas nos faltan para llegar a ese número?
-
-```{r}
-#| echo: true
-
-8 - sueno
-```
-
-::: 
-
-::: {.fragment}
-3. Multiplicación: Si se usan redes sociales tres horas diarias, ¿cuánto tiempo le hemos dedicado en una semana?
-
-```{r}
-#| echo: true
-
-7 * redes
-```
-:::
-
-
-::: {.fragment}
-
-4. División: Si entre dos amigos se tienen 5 y 7 horas de sueño, ¿cuánto duerme cada uno en promedio?
-
-```{r}
-#| echo: true
-
-sueno1 <- 5
-sueno2 <- 7
-
-(sueno1 + sueno2) / 2
-
-```
-
-:::
-
-::: {.fragment}
-
-
-5. Raíz Cuadrada
-
-
-```{r}
-#| echo: true
-
-sqrt(2)
-```
-:::
-
-## - Operaciones Relacionales
-
-Una amiga nuestra quiere que analicemos sus hábitos.
-
-```{r}
-#| echo: true
-uso_redes <- 6
-horas_sueno <- 5
-recomendado_sueno <- 8
-```
-
-
-::: {.fragment}
-
-1. Igualdad: ¿Usa las mismas horas de redes que duerme?
-
-```{r}
-#| echo: true
-uso_redes == horas_sueno
-```
-:::
-
-::: {.fragment}
-
-2. Distinto: ¿Las horas que duerme son diferentes a las recomendadas?
-
-```{r}
-#| echo: true
-
-horas_sueno != recomendado_sueno
-
-```
-:::
-
-::: {.fragment}
-
-3. Mayor que: ¿El uso de redes es mayor que las horas de sueño?
-
-```{r}
-#| echo: true
-
-uso_redes > horas_sueno
-```
-:::
-
-::: {.fragment}
-4. Mayor o igual que: ¿La persona duerme al menos 5 horas?
-
-```{r}
-#| echo: true
-
-horas_sueno >= 5
-```
-
-:::
-
-::: {.fragment}
-
-5. Menor que: ¿Duerme menos de lo recomendado?
-
-```{r}
-#| echo: true
-
-horas_sueno < recomendado_sueno
-
-```
-
-:::
-
-::: {.fragment}
-
-6. Menor o igual que: ¿Usa redes 6 horas o menos?
-
-```{r}
-#| echo: true
-uso_redes <= 6
-```
-
-
-:::
-
-
-## - Asignación de objetos a variables y tipos de objetos {background-color="#f8f9fa"}
-
-
-::: {.fragment}
-
-1. Entero: 
-
-```{r}
-#| echo: true
-edad <- 18L
-typeof(edad)
-```
-
-:::
-
-::: {.fragment}
-
-2. Float (Double)
-
-```{r}
-#| echo: true
-promedio_sueno <- 6.5
-typeof(promedio_sueno)
-```
-
-:::
-
-::: {.fragment}
-
-3. Cáracter
-
-```{r}
-#| echo: true
-
-red_favorita <- "Instagram"
-typeof(red_favorita)
-```
-
-:::
-
-::: {.fragment}
-
-4. Booleano
-
-```{r}
-#| echo: true
-
-duerme_bien <- FALSE
-typeof(duerme_bien)
-
-```
-:::
-
----
-
-## - Estructuras básicas
-
-::: {.fragment}
-
-1. Vector numérico
-
-```{r}
-#| echo: true
-horas_redes <- c(2, 4, 6)
-horas_redes
-class(horas_redes)
-```
-:::
-
-::: {.fragment}
-
-2. Vector de carácteres
-
-```{r}
-#| echo: true
-
-plataformas <- c("Instagram", "TikTok", "WhatsApp")
-plataformas
-class(plataformas)
-```
-:::
-
-::: {.fragment}
-
-3. Matriz
-
-```{r}
-#| echo: true
-
-habitos <- matrix(c(5, 6, 4,
-                    7, 5, 6),
-                  nrow = 2,
-                  ncol = 3)
-habitos
-class(habitos)
-
-```
-
-:::
-
-::: {.fragment}
-
-4. Data frame
-
-```{r}
-#| echo: true
-nombres <- c("Ana", "Luis", "Marta", "Juan")
-horas_redes <- c(5, 7, 3, 6)
-horas_sueno <- c(6, 5, 8, 6)
-estres <- c(TRUE, TRUE, FALSE, TRUE)
-
-datos <- data.frame(nombres, horas_redes, horas_sueno, estres)
-datos
-```
-
-
-:::
 
 
 ## - Directorio {background-color="#f8f9fa"}
@@ -475,9 +203,11 @@ La instalación de un paquete se realiza una única vez en el equipo en el que s
 ```{r}
 #| eval: false
 #| echo: true
-install.packages("readxl") # Instalación
+install.packages("dplyr") # Instalación
 
-library(readxl) # Se carga el paquete
+library(dplyr) # Se carga el paquete
+
+?select
 ```
 
 
@@ -493,6 +223,401 @@ Las bases de datos que se quieran trabajar pueden ser de distintos formatos:
 * Formatos de Big Data: Parquet (*.parquet*)
 
 Algunas funciones para importar archivos vienen preinstalados en R, pero otras requieren instalar **paquetes** adicionales. Por ejemplo, uno de los tipos de archivo más comunes es el formato *.xlsx*.
+
+
+
+## - Operaciones {background-color="#f8f9fa"}
+
+Supongamos que estamos analizando nuestros hábitos del uso del celular y demás actividades.
+
+![](habitos.jpg){fig-align="center" width="100%"}
+
+**¿Cómo podemos usar R para tener un control de nuestros hábitos y llevar las cuentas?**
+
+## - Operaciones aritméticas {background-color="#f8f9fa"}
+
+
+0. Guardemos nuestras horas de uso de redes sociales y las horas de sueño.
+
+::: {.fragment}
+
+```{r}
+#| echo: true
+#| code-line-numbers: true
+
+redes <- 3
+sueno <- 7
+```
+
+::: 
+
+
+
+
+
+1. ¿Cuántas horas en total representan ambas variables?
+
+::: {.fragment}
+```{r}
+#| echo: true
+#| code-line-numbers: true
+
+redes + sueno
+```
+
+::: 
+
+
+
+2. Si se recomienda dormir 8 horas, ¿cuántas horas nos faltan para llegar a ese número?
+
+::: {.fragment}
+
+```{r}
+#| echo: true
+
+8 - sueno
+```
+
+::: 
+
+
+3. Si se usan redes sociales tres horas diarias, ¿cuánto tiempo le hemos dedicado en una semana?
+
+::: {.fragment}
+
+```{r}
+#| echo: true
+
+7 * redes
+```
+:::
+
+
+
+
+4. Si entre dos amigos se tienen 5 y 7 horas de sueño, ¿cuánto duerme cada uno en promedio?
+
+
+::: {.fragment}
+
+```{r}
+#| echo: true
+
+sueno1 <- 5
+sueno2 <- 7
+
+(sueno1 + sueno2) / 2
+
+```
+
+:::
+
+
+
+
+5. Raíz Cuadrada
+
+::: {.fragment}
+
+```{r}
+#| echo: true
+
+sqrt(2)
+```
+:::
+
+## - Operaciones Relacionales
+
+Nuestra amiga, Paula, nuestra quiere que analicemos sus hábitos.
+
+```{r}
+#| echo: true
+uso_redes <- 6
+horas_sueno <- 5
+recomendado_sueno <- 8
+ejercicio <- TRUE
+```
+
+
+
+
+1. ¿Laura usa las mismas horas de redes que duerme?
+
+::: {.fragment}
+
+```{r}
+#| echo: true
+uso_redes == horas_sueno
+```
+:::
+
+
+
+2. ¿Las horas que duerme son diferentes a las recomendadas?
+
+::: {.fragment}
+
+```{r}
+#| echo: true
+
+horas_sueno != recomendado_sueno
+
+```
+:::
+
+
+
+3. ¿El uso de redes es mayor que las horas de sueño?
+
+::: {.fragment}
+
+```{r}
+#| echo: true
+
+uso_redes > horas_sueno
+```
+:::
+
+
+4. ¿Paula duerme al menos 5 horas?
+
+::: {.fragment}
+
+```{r}
+#| echo: true
+
+horas_sueno >= 5
+```
+
+:::
+
+
+
+5. ¿Duerme menos de lo recomendado?
+
+::: {.fragment}
+
+```{r}
+#| echo: true
+
+horas_sueno < recomendado_sueno
+
+```
+
+:::
+
+
+
+6. ¿Paula usa redes 6 horas o menos?
+
+::: {.fragment}
+
+```{r}
+#| echo: true
+uso_redes <= 6
+```
+
+:::
+
+---
+
+## - Operadores Lógicos
+
+::: {.fragment}
+
+1. ¿Nuestra amiga duerme poco y usa muchas redes?
+
+```{r}
+#| echo: true
+
+horas_sueno < 8 & uso_redes > 4
+```
+:::
+
+
+
+2. ¿Paula duerme bien o hace ejercicio?
+
+::: {.fragment}
+
+```{r}
+#| echo: true
+
+horas_sueno >= 8 | ejercicio == TRUE
+```
+
+:::
+
+
+
+3. ¿No hace ejercicio?
+
+::: {.fragment}
+
+```{r}
+#| echo: true
+
+!ejercicio
+```
+:::
+
+
+## - Tipos de objetos {background-color="#f8f9fa"}
+
+
+
+
+1. **Entero:** Ahora guardemos cuántos créditos tenemos inscritos.
+
+::: {.fragment}
+
+```{r}
+#| echo: true
+creditos_inscritos <- 12L
+typeof(creditos_inscritos)
+```
+
+:::
+
+
+
+2. **Double:** ¿Cuántas horas le dedicamos a estudiar en un día cualquiera?
+
+::: {.fragment}
+
+```{r}
+#| echo: true
+promedio_sueno <- 2.5
+typeof(promedio_sueno)
+```
+
+:::
+
+
+
+3. **Cáracter:** ¿Cuál es nuestra red social favorita?
+
+::: {.fragment}
+
+```{r}
+#| echo: true
+
+red_favorita <- "Instagram"
+typeof(red_favorita)
+```
+
+:::
+
+
+
+4. **Booleano:** ¿Nos sentimos estresados frecuentemente?
+
+::: {.fragment}
+
+```{r}
+#| echo: true
+
+estres <- TRUE
+typeof(estres)
+
+```
+:::
+
+---
+
+## - Estructuras básicas
+
+1. **Vector numérico:** Nuestros amigos Juan y Carlos también quieren que analicemos sus hábitos, además de Paula. Paula usa su celular 6 horas, Juan 2 horas y Carlos 2 horas. Además, nos dan información de sus horas de sueño.
+
+::: {.fragment}
+
+```{r}
+#| echo: true
+horas_redes <- c(6, 8, 2)
+horas_redes
+class(horas_redes)
+
+
+horas_sueno <- c(5, 6, 7)
+```
+:::
+
+
+
+2. **Vector de carácteres:** Les preguntamos en el mismo orden por su red social favorita y responden Instagram, Tik Tok y WhatsApp.
+
+::: {.fragment}
+
+```{r}
+#| echo: true
+
+plataformas <- c("Instagram", "Tik Tok", "WhatsApp")
+plataformas
+class(plataformas)
+```
+:::
+
+
+
+3. **Matriz:** Ahora, ¿cómo guardar las horas de uso de redes sociales y sueño de cada uno?
+
+::: {.fragment}
+
+```{r}
+#| echo: true
+
+habitos <- matrix(c(horas_redes,
+                    horas_sueno), 
+                  nrow = 2, ncol = 3, byrow = TRUE)
+habitos
+class(habitos)
+
+```
+
+:::
+
+
+
+4. **Data frame**: Guardemos la información nuestra y la de nuestros amigos.
+
+::: {.fragment}
+
+```{r}
+#| echo: true
+nombres <- c("Camilo", "Paula", "Juan", "Carlos")
+horas_redes <- c(3, 6, 8, 2)
+horas_sueno <- c(7, 5, 6, 7)
+estres <- c(TRUE, TRUE, TRUE, FALSE)
+
+datos <- data.frame(nombres, horas_redes, horas_sueno, estres)
+datos
+```
+
+
+:::
+
+
+# **Reto:** Estadísticas de nuestros hábitos
+
+## Estadísticas de nuestros hábitos
+
+¿Cómo analizamos nuestros datos de horas de sueño, uso de redes sociales, estudio y ejercicio?
+
+Si hemos registrado nuestras horas de sueño y uso del celular de la última semana, responde a las siguientes preguntas:
+
+1. ¿Cómo resumes tus horas de sueño de la semana con un solo número? *Pista: mean()*
+2. ¿Tus horas de sueño cambian mucho o son similares cada día? *Pista: sd()*
+3. ¿Cual fue el día en el que más horas la pasamos en redes sociales? *Pista: max()*
+
+```{r}
+#| echo: true
+sueno_semana <- c(6, 7, 5, 8, 6, 9, 7)
+redes_semana <- c(3, 4, 6, 2, 5, 4, 3)
+
+```
+
+
 
 # 2. Importación de archivos {background-color="#f8f9fa"}
 
