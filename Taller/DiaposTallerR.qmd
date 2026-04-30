@@ -336,13 +336,13 @@ Nuestra amiga, Paula, nuestra quiere que analicemos sus hábitos.
 uso_redes <- 6
 horas_sueno <- 5
 recomendado_sueno <- 8
-ejercicio <- TRUE
+ejercicio <- "Si"
 ```
 
 
 
 
-1. ¿Laura usa las mismas horas de redes que duerme?
+1. ¿Laura usa las mismas horas durmiendo y consumiento contenido en redes sociales?
 
 ::: {.fragment}
 
@@ -409,7 +409,7 @@ horas_sueno < recomendado_sueno
 
 
 
-6. ¿Paula usa redes 6 horas o menos?
+6. ¿Paula usa redes sociales 6 horas o menos?
 
 ::: {.fragment}
 
@@ -444,22 +444,9 @@ horas_sueno < 8 & uso_redes > 4
 ```{r}
 #| echo: true
 
-horas_sueno >= 8 | ejercicio == TRUE
+horas_sueno >= 8 | ejercicio == "Si"
 ```
 
-:::
-
-
-
-3. ¿No hace ejercicio?
-
-::: {.fragment}
-
-```{r}
-#| echo: true
-
-!ejercicio
-```
 :::
 
 
@@ -562,6 +549,44 @@ class(plataformas)
 
 3. **Matriz:** Ahora, ¿cómo guardar las horas de uso de redes sociales y sueño de cada uno?
 
+1. Primera opción
+
+::: {.fragment}
+
+```{r}
+#| echo: true
+
+habitos <- matrix(c(6, 8, 2, 5, 6, 7), 
+                  nrow = 3, ncol = 2, byrow = FALSE)
+
+
+habitos
+class(habitos)
+
+```
+
+:::
+
+2. Segunda opción
+
+::: {.fragment}
+
+```{r}
+#| echo: true
+
+habitos <- matrix(c(horas_redes,
+                    horas_sueno), 
+                  nrow = 3, ncol = 2, byrow = FALSE)
+habitos
+class(habitos)
+
+```
+
+:::
+
+3. ¿Y si queremos cada categoría por fila?
+
+
 ::: {.fragment}
 
 ```{r}
@@ -576,8 +601,6 @@ class(habitos)
 ```
 
 :::
-
-
 
 4. **Data frame**: Guardemos la información nuestra y la de nuestros amigos.
 
@@ -832,4 +855,13 @@ df %>%
 
 :::
 
+
+
+
+
+# Acceso al material
+
+Al escanear el siguiente código QR pueden acceder a las diapositivas.
+
+![](qr-code.png){fig-align="center" width="80%"}
 

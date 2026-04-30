@@ -325,9 +325,10 @@
 <pre><code> [1] "_extensions"                     "DiaposTallerR.qmd"              
  [3] "DiaposTallerR.rmarkdown"         "dplyr.png"                      
  [5] "habitos.jpg"                     "interfaz.png"                   
- [7] "posit.png"                       "rendimiento.png"                
- [9] "salud_mental.png"                "Social_media_impact_on_life.csv"
-[11] "styles.css"                      "tienda-barrio.jpeg"             </code></pre>
+ [7] "posit.png"                       "qr-code.png"                    
+ [9] "rendimiento.png"                 "salud_mental.png"               
+[11] "Social_media_impact_on_life.csv" "styles.css"                     
+[13] "tienda-barrio.jpeg"             </code></pre>
 </div>
 </div>
 <p>Si tienen los archivos con los que van a trabajar en otro directorio, entonces se usa <code>setwd()</code></p>
@@ -449,10 +450,10 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>uso_redes <span class="ot">&lt;-</span> <span class="dv">6</span></span>
 <span id="cb18-2"><a></a>horas_sueno <span class="ot">&lt;-</span> <span class="dv">5</span></span>
 <span id="cb18-3"><a></a>recomendado_sueno <span class="ot">&lt;-</span> <span class="dv">8</span></span>
-<span id="cb18-4"><a></a>ejercicio <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb18-4"><a></a>ejercicio <span class="ot">&lt;-</span> <span class="st">"Si"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol type="1">
-<li>¿Laura usa las mismas horas de redes que duerme?</li>
+<li>¿Laura usa las mismas horas durmiendo y consumiento contenido en redes sociales?</li>
 </ol>
 <div class="fragment">
 <div class="cell">
@@ -507,7 +508,7 @@
 </div>
 </div>
 <ol start="6" type="1">
-<li>¿Paula usa redes 6 horas o menos?</li>
+<li>¿Paula usa redes sociales 6 horas o menos?</li>
 </ol>
 <div class="fragment">
 <div class="cell">
@@ -536,20 +537,9 @@
 </ol>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>horas_sueno <span class="sc">&gt;=</span> <span class="dv">8</span> <span class="sc">|</span> ejercicio <span class="sc">==</span> <span class="cn">TRUE</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>horas_sueno <span class="sc">&gt;=</span> <span class="dv">8</span> <span class="sc">|</span> ejercicio <span class="sc">==</span> <span class="st">"Si"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
-</div>
-</div>
-</div>
-<ol start="3" type="1">
-<li>¿No hace ejercicio?</li>
-</ol>
-<div class="fragment">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a><span class="sc">!</span>ejercicio</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE</code></pre>
 </div>
 </div>
 </div>
@@ -561,8 +551,8 @@
 </ol>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>creditos_inscritos <span class="ot">&lt;-</span> <span class="dv">12</span>L</span>
-<span id="cb37-2"><a></a><span class="fu">typeof</span>(creditos_inscritos)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>creditos_inscritos <span class="ot">&lt;-</span> <span class="dv">12</span>L</span>
+<span id="cb35-2"><a></a><span class="fu">typeof</span>(creditos_inscritos)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "integer"</code></pre>
 </div>
@@ -573,8 +563,8 @@
 </ol>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>promedio_sueno <span class="ot">&lt;-</span> <span class="fl">2.5</span></span>
-<span id="cb39-2"><a></a><span class="fu">typeof</span>(promedio_sueno)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>promedio_sueno <span class="ot">&lt;-</span> <span class="fl">2.5</span></span>
+<span id="cb37-2"><a></a><span class="fu">typeof</span>(promedio_sueno)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "double"</code></pre>
 </div>
@@ -585,8 +575,8 @@
 </ol>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>red_favorita <span class="ot">&lt;-</span> <span class="st">"Instagram"</span></span>
-<span id="cb41-2"><a></a><span class="fu">typeof</span>(red_favorita)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>red_favorita <span class="ot">&lt;-</span> <span class="st">"Instagram"</span></span>
+<span id="cb39-2"><a></a><span class="fu">typeof</span>(red_favorita)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "character"</code></pre>
 </div>
@@ -597,8 +587,8 @@
 </ol>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a>estres <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
-<span id="cb43-2"><a></a><span class="fu">typeof</span>(estres)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>estres <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb41-2"><a></a><span class="fu">typeof</span>(estres)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "logical"</code></pre>
 </div>
@@ -612,16 +602,16 @@
 </ol>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a>horas_redes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">2</span>)</span>
-<span id="cb45-2"><a></a>horas_redes</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a>horas_redes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">2</span>)</span>
+<span id="cb43-2"><a></a>horas_redes</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 6 8 2</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a><span class="fu">class</span>(horas_redes)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a><span class="fu">class</span>(horas_redes)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "numeric"</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a>horas_sueno <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a>horas_sueno <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <ol start="2" type="1">
@@ -629,32 +619,76 @@
 </ol>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a></a>plataformas <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Instagram"</span>, <span class="st">"Tik Tok"</span>, <span class="st">"WhatsApp"</span>)</span>
-<span id="cb50-2"><a></a>plataformas</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a></a>plataformas <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Instagram"</span>, <span class="st">"Tik Tok"</span>, <span class="st">"WhatsApp"</span>)</span>
+<span id="cb48-2"><a></a>plataformas</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Instagram" "Tik Tok"   "WhatsApp" </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a></a><span class="fu">class</span>(plataformas)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a></a><span class="fu">class</span>(plataformas)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "character"</code></pre>
 </div>
 </div>
 </div>
 <ol start="3" type="1">
-<li><strong>Matriz:</strong> Ahora, ¿cómo guardar las horas de uso de redes sociales y sueño de cada uno?</li>
+<li><p><strong>Matriz:</strong> Ahora, ¿cómo guardar las horas de uso de redes sociales y sueño de cada uno?</p></li>
+<li><p>Primera opción</p></li>
 </ol>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a></a>habitos <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(horas_redes,</span>
-<span id="cb54-2"><a></a>                    horas_sueno), </span>
-<span id="cb54-3"><a></a>                  <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb54-4"><a></a>habitos</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a></a>habitos <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>), </span>
+<span id="cb52-2"><a></a>                  <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb52-3"><a></a></span>
+<span id="cb52-4"><a></a></span>
+<span id="cb52-5"><a></a>habitos</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]
+[1,]    6    5
+[2,]    8    6
+[3,]    2    7</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a></a><span class="fu">class</span>(habitos)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "matrix" "array" </code></pre>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Segunda opción</li>
+</ol>
+<div class="fragment">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a></a>habitos <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(horas_redes,</span>
+<span id="cb56-2"><a></a>                    horas_sueno), </span>
+<span id="cb56-3"><a></a>                  <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb56-4"><a></a>habitos</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]
+[1,]    6    5
+[2,]    8    6
+[3,]    2    7</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a></a><span class="fu">class</span>(habitos)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "matrix" "array" </code></pre>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>¿Y si queremos cada categoría por fila?</li>
+</ol>
+<div class="fragment">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a></a>habitos <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(horas_redes,</span>
+<span id="cb60-2"><a></a>                    horas_sueno), </span>
+<span id="cb60-3"><a></a>                  <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb60-4"><a></a>habitos</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3]
 [1,]    6    8    2
 [2,]    5    6    7</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a></a><span class="fu">class</span>(habitos)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a></a><span class="fu">class</span>(habitos)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "matrix" "array" </code></pre>
 </div>
@@ -665,13 +699,13 @@
 </ol>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a></a>nombres <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Camilo"</span>, <span class="st">"Paula"</span>, <span class="st">"Juan"</span>, <span class="st">"Carlos"</span>)</span>
-<span id="cb58-2"><a></a>horas_redes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">2</span>)</span>
-<span id="cb58-3"><a></a>horas_sueno <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>)</span>
-<span id="cb58-4"><a></a>estres <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
-<span id="cb58-5"><a></a></span>
-<span id="cb58-6"><a></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(nombres, horas_redes, horas_sueno, estres)</span>
-<span id="cb58-7"><a></a>datos</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a></a>nombres <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Camilo"</span>, <span class="st">"Paula"</span>, <span class="st">"Juan"</span>, <span class="st">"Carlos"</span>)</span>
+<span id="cb64-2"><a></a>horas_redes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">2</span>)</span>
+<span id="cb64-3"><a></a>horas_sueno <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>)</span>
+<span id="cb64-4"><a></a>estres <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb64-5"><a></a></span>
+<span id="cb64-6"><a></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(nombres, horas_redes, horas_sueno, estres)</span>
+<span id="cb64-7"><a></a>datos</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  nombres horas_redes horas_sueno estres
 1  Camilo           3           7   TRUE
@@ -697,8 +731,8 @@
 <li>¿Cual fue el día en el que más horas la pasamos en redes sociales? <em>Pista: max()</em></li>
 </ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a></a>sueno_semana <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">7</span>)</span>
-<span id="cb60-2"><a></a>redes_semana <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">3</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a></a>sueno_semana <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">7</span>)</span>
+<span id="cb66-2"><a></a>redes_semana <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">3</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section></section>
 <section>
@@ -783,17 +817,17 @@ Tabla&nbsp;1: Descripción de variables del dataset
 <h2>- Importación de la base de datos</h2>
 <p>Al descargar el archivo, es posible ver su extensión (<em>.csv</em>). De esta forma, se usa la función <code>read.csv()</code>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"Social_media_impact_on_life.csv"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"Social_media_impact_on_life.csv"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Ahora, miramos el tipo de objeto y cómo podemos obtener una rápida visualización de su contenido con las funciones <code>class()</code> y <code>str()</code> o <code>head()</code>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a></a><span class="fu">class</span>(df)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a></a><span class="fu">class</span>(df)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "data.frame"</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a></a><span class="fu">str</span>(df)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a></a><span class="fu">str</span>(df)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   1705 obs. of  11 variables:
  $ Student_ID                  : int  232 564 788 686 608 370 862 520 703 33 ...
@@ -811,7 +845,7 @@ Tabla&nbsp;1: Descripción de variables del dataset
 </div>
 <p>Si queremos ver sus diez primeras filas:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a></a><span class="fu">head</span>(df, <span class="at">n =</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a></a><span class="fu">head</span>(df, <span class="at">n =</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Student_ID Age Gender Academic_Level Country Avg_Daily_Usage_Hours
 1         232  21   Male  Undergraduate   Other                   4.0
@@ -874,16 +908,16 @@ Tabla&nbsp;1: Descripción de variables del dataset
 <p>La función <code>select()</code> de <code>dplyr</code> sirve para elegir columnas específicas de un conjunto de datos.</p>
 <p><strong>La pregunta:</strong> ¿Qué variables son clave para medir el impacto digital?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb68-2"><a></a></span>
-<span id="cb68-3"><a></a>df_relevante <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
-<span id="cb68-4"><a></a>  <span class="fu">select</span>(Age, Gender, Mental_Health_Score, </span>
-<span id="cb68-5"><a></a>         Avg_Daily_Usage_Hours, Sleep_Hours_Per_Night, </span>
-<span id="cb68-6"><a></a>         Overall_Impact)</span>
-<span id="cb68-7"><a></a></span>
-<span id="cb68-8"><a></a><span class="co"># O descartando lo innecesario</span></span>
-<span id="cb68-9"><a></a>df_limpio <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
-<span id="cb68-10"><a></a>  <span class="fu">select</span>(<span class="sc">-</span>Student_ID)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb74-2"><a></a></span>
+<span id="cb74-3"><a></a>df_relevante <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb74-4"><a></a>  <span class="fu">select</span>(Age, Gender, Mental_Health_Score, </span>
+<span id="cb74-5"><a></a>         Avg_Daily_Usage_Hours, Sleep_Hours_Per_Night, </span>
+<span id="cb74-6"><a></a>         Overall_Impact)</span>
+<span id="cb74-7"><a></a></span>
+<span id="cb74-8"><a></a><span class="co"># O descartando lo innecesario</span></span>
+<span id="cb74-9"><a></a>df_limpio <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb74-10"><a></a>  <span class="fu">select</span>(<span class="sc">-</span>Student_ID)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="segunda-herramienta-filter" class="slide level2">
@@ -891,15 +925,15 @@ Tabla&nbsp;1: Descripción de variables del dataset
 <p>La función <code>filter()</code> de <code>dplyr</code> sirve para filtrar valores específicos de las columnas que deseemos:</p>
 <p><strong>La pregunta:</strong> ¿Cómo cambia el puntaje medio de salud mental en estudiantes que usan redes más de 5 horas al día?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a></a><span class="fu">mean</span>(df<span class="sc">$</span>Mental_Health_Score)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a></a><span class="fu">mean</span>(df<span class="sc">$</span>Mental_Health_Score)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 6.215132</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a></a>df1 <span class="ot">=</span> df <span class="sc">%&gt;%</span> </span>
-<span id="cb71-2"><a></a>  <span class="fu">filter</span>(Avg_Daily_Usage_Hours <span class="sc">&gt;</span> <span class="dv">5</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb71-3"><a></a>  <span class="fu">select</span>(Avg_Daily_Usage_Hours,Mental_Health_Score) </span>
-<span id="cb71-4"><a></a></span>
-<span id="cb71-5"><a></a><span class="fu">mean</span>(df1<span class="sc">$</span>Mental_Health_Score)  </span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a></a>df1 <span class="ot">=</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb77-2"><a></a>  <span class="fu">filter</span>(Avg_Daily_Usage_Hours <span class="sc">&gt;</span> <span class="dv">5</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb77-3"><a></a>  <span class="fu">select</span>(Avg_Daily_Usage_Hours,Mental_Health_Score) </span>
+<span id="cb77-4"><a></a></span>
+<span id="cb77-5"><a></a><span class="fu">mean</span>(df1<span class="sc">$</span>Mental_Health_Score)  </span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5.265814</code></pre>
 </div>
@@ -910,9 +944,9 @@ Tabla&nbsp;1: Descripción de variables del dataset
 <p><strong>La pregunta:</strong> ¿Cuáles son las personas que registran poco sueño (menos de seis horas) y alto uso de redes (más de cuatro horas)?</p>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb73-2"><a></a>  <span class="fu">filter</span>(Sleep_Hours_Per_Night <span class="sc">&lt;</span> <span class="dv">6</span>,</span>
-<span id="cb73-3"><a></a>         Avg_Daily_Usage_Hours <span class="sc">&gt;</span> <span class="dv">4</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb79-2"><a></a>  <span class="fu">filter</span>(Sleep_Hours_Per_Night <span class="sc">&lt;</span> <span class="dv">6</span>,</span>
+<span id="cb79-3"><a></a>         Avg_Daily_Usage_Hours <span class="sc">&gt;</span> <span class="dv">4</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    Student_ID Age Gender Academic_Level        Country Avg_Daily_Usage_Hours
 1          686  18   Male  Undergraduate          Other                   7.0
@@ -2759,9 +2793,9 @@ Tabla&nbsp;1: Descripción de variables del dataset
 <p><strong>La pregunta:</strong> ¿Cuáles son las personas que registran poco sueño (menos de seis horas) y alto uso de redes (más de cuatro horas)?</p>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb75-2"><a></a>  <span class="fu">filter</span>(Sleep_Hours_Per_Night <span class="sc">&lt;</span> <span class="dv">6</span>,</span>
-<span id="cb75-3"><a></a>         Avg_Daily_Usage_Hours <span class="sc">&gt;</span> <span class="dv">4</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb81-2"><a></a>  <span class="fu">filter</span>(Sleep_Hours_Per_Night <span class="sc">&lt;</span> <span class="dv">6</span>,</span>
+<span id="cb81-3"><a></a>         Avg_Daily_Usage_Hours <span class="sc">&gt;</span> <span class="dv">4</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    Student_ID Age Gender Academic_Level        Country Avg_Daily_Usage_Hours
 1          686  18   Male  Undergraduate          Other                   7.0
@@ -4611,9 +4645,9 @@ Tabla&nbsp;1: Descripción de variables del dataset
 <p>Las funciones <code>group_by()</code> y <code>summarize()</code> de <code>dplyr</code> van siempre de la mano, la primera de ellas nos permite agrupar por una característica y la segunda de ellas nos permiten resumir a los grupos en alguna medida.</p>
 <p><strong>La pregunta:</strong> ¿Cuál es el promedio del puntaje de salud mental por género?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a></a>df <span class="sc">%&gt;%</span> </span>
-<span id="cb77-2"><a></a>  <span class="fu">group_by</span>(Gender) <span class="sc">%&gt;%</span></span>
-<span id="cb77-3"><a></a>  <span class="fu">summarise</span>(<span class="at">Prom =</span> <span class="fu">mean</span>(Mental_Health_Score))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb83-2"><a></a>  <span class="fu">group_by</span>(Gender) <span class="sc">%&gt;%</span></span>
+<span id="cb83-3"><a></a>  <span class="fu">summarise</span>(<span class="at">Prom =</span> <span class="fu">mean</span>(Mental_Health_Score))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   Gender  Prom
@@ -4628,9 +4662,9 @@ Tabla&nbsp;1: Descripción de variables del dataset
 <p><strong>La pregunta:</strong> ¿Cómo varía el uso promedio de redes según nivel académico?</p>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a></a>df <span class="sc">%&gt;%</span> </span>
-<span id="cb79-2"><a></a>  <span class="fu">group_by</span>(Academic_Level) <span class="sc">%&gt;%</span></span>
-<span id="cb79-3"><a></a>  <span class="fu">summarise</span>(<span class="at">Prom =</span> <span class="fu">mean</span>(Avg_Daily_Usage_Hours))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb85-2"><a></a>  <span class="fu">group_by</span>(Academic_Level) <span class="sc">%&gt;%</span></span>
+<span id="cb85-3"><a></a>  <span class="fu">summarise</span>(<span class="at">Prom =</span> <span class="fu">mean</span>(Avg_Daily_Usage_Hours))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
   Academic_Level  Prom
@@ -4644,10 +4678,10 @@ Tabla&nbsp;1: Descripción de variables del dataset
 <p><strong>La pregunta:</strong> ¿Qué aplicación tiene más reportes con impacto negativo?</p>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a></a>df <span class="sc">%&gt;%</span> </span>
-<span id="cb81-2"><a></a>  <span class="fu">filter</span>(Overall_Impact <span class="sc">==</span> <span class="st">"Negative"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb81-3"><a></a>  <span class="fu">group_by</span>(Most_Used_Platform) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">Num =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
-<span id="cb81-4"><a></a>  <span class="fu">filter</span>(Num <span class="sc">==</span> <span class="fu">max</span>(Num))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb87-2"><a></a>  <span class="fu">filter</span>(Overall_Impact <span class="sc">==</span> <span class="st">"Negative"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb87-3"><a></a>  <span class="fu">group_by</span>(Most_Used_Platform) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">Num =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb87-4"><a></a>  <span class="fu">filter</span>(Num <span class="sc">==</span> <span class="fu">max</span>(Num))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 2
   Most_Used_Platform   Num
@@ -4656,9 +4690,14 @@ Tabla&nbsp;1: Descripción de variables del dataset
 </div>
 </div>
 </div>
-
-
 </section></section>
+<section id="acceso-al-material" class="title-slide slide level1 center">
+<h1>Acceso al material</h1>
+<p>Al escanear el siguiente código QR pueden acceder a las diapositivas.</p>
+
+
+
+<img data-src="qr-code.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
