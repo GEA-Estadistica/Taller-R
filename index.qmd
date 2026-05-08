@@ -28,3 +28,4 @@ Este espacio está pensado para personas que quieren iniciarse en R o fortalecer
 
 
 * [Diapositivas de la primera sesión](Taller/DiaposTallerR.qmd)
+* [Diapositivas de la segunda sesión](Taller2/DiaposTallerR2Sofi.qmd)

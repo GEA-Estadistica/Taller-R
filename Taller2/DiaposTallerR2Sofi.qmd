@@ -1,0 +1,1550 @@
+---
+format:
+  revealjs:
+    theme: solarized
+    slide-number: true
+    transition: fade
+    background-transition: slide
+    scrollable: true
+    code-copy: true
+    code-overflow: wrap
+    code-block-height: 300px
+    highlight-style: github
+    toc: false
+    toc-depth: 2
+    self-contained: true
+    css: styles1.css
+    width: 1600
+    height: 900
+    margin: 0
+    
+lang: es
+---
+
+# Hacia los datos: gráficos y visualización
+
+<br><br>
+
+¿Te animas a aprender R y descubrir qué dicen los datos sobre redes sociales y salud mental?
+
+
+# [\#Cuéntanos:]{style="color: #e67e22; font-size: 1.4em; font-weight: 800; display: block;"} [¿Qué te motivó a asistir al taller?]{style="color: #a04000; font-size: 0.9em; font-weight: 600; display: block;"}
+
+::: {.columns}
+::: {.column width="60%"}
+1. Abre tu cámara.
+2. Escanea el código QR.
+:::
+
+::: {.column width="40%"}
+::: {.qr-container}
+![](qr-code.png)
+:::
+:::
+:::
+
+
+## Configuración Inicial {.titulo-especial}
+
+::: {.columns}
+
+::: {.column width="48%"}
+::: {.tarjeta-blanca}
+::: {.icon-orange}
+<i class="fa-solid fa-folder-tree"></i>
+:::
+
+### El Directorio
+¿Dónde está trabajando R? Define la ubicación física para leer tus archivos.
+
+
+```{r}
+#| echo: true
+#| eval: false
+
+getwd() # Ver ruta actual
+dir() # Listar archivos disponibles
+# choose.files()
+setwd("C:\\Users\\sofia\\OneDrive\\Documentos\\2026-1\\GEA\\Taller2") # Cambiar de carpeta
+```
+
+
+:::
+:::
+:::
+
+::: {.column width="48%"}
+::: {.tarjeta-blanca}
+::: {.icon-orange}
+
+:::
+
+### Gestión de Paquetes
+Extiende las capacidades de R instalando nuevas librerías especializadas.
+
+- **Instalación**: Se realiza una sola vez por equipo.
+
+- **Carga**: Se debe hacer en cada sesión nueva de R.
+
+```{r}
+#| echo: true
+#| eval: true
+# install.packages("dplyr") 
+library(dplyr)
+
+# install.packages("ggplot2")
+library(ggplot2)
+```
+
+           
+:::
+:::
+
+:::
+
+## Caso de Estudio e Importación {.titulo-especial}
+
+::: {.columns}
+
+::: {.column width="48%"}
+::: {.tarjeta-blanca}
+::: {.icon-orange}
+<i class="fa-brands fa-kaggle"></i>
+:::
+
+### Impacto de Redes 
+Los datos que se usarán en esta sesión provienen de **Kaggle**. Estos los pueden encontrar el siguiente [link](https://www.kaggle.com/datasets/sumeakash/impact-of-social-media-on-health).
+
+Contienen información sobre el impacto de las plataformas digitales y la IA en estudiantes, tanto en su vida personal como académica.
+
+- **Formato**: `.csv`
+- **Lectura en R**: `read.csv()`
+
+```{r}
+#| echo: true
+#| eval: true
+df <- read.csv("Social_media_impact_on_life.csv")
+```
+
+:::
+:::
+
+::: {.column width="48%"}
+::: {.tarjeta-blanca}
+::: {.icon-orange}
+<i class="fa-solid fa-file-import"></i>
+:::
+
+### Tipos de archivos
+
+R puede leer casi cualquier base de datos:
+
+-   Texto plano: CSV (*.csv*), TXT (*.txt*)
+-   Hojas de cálculo: Excel (*.xlsx*)
+-   Otros software: Stata (*.dta*), SAS (*.sas7bdat*)
+-   Formatos de R: RData (*.RData*), Rda (*.rda*)
+
+::: {.callout-warning appearance="simple"}
+Algunas funciones para importar archivos vienen preinstalados en R, pero otras requieren instalar paquetes adicionales. Por ejemplo, archivos *.xlsx*.
+:::
+
+:::
+:::
+
+:::
+
+
+## Tipos de Variables {.titulo-especial}
+
+::: {.columns}
+
+::: {.column width="45%"}
+::: {.tarjeta-blanca}
+::: {.icon-orange}
+<i class="fa-solid fa-calculator"></i>
+:::
+### Numéricas
+
+Representan cantidades medibles y permiten operaciones matemáticas.
+
+- **Discretas**: valores enteros (ej. número de hijos)
+- **Continuas**: cualquier valor en un intervalo (ej. peso, altura)
+- **Intervalo**: No tiene cero absoluto (ej. temperatura en °C)
+- **Razón**: Tiene cero absoluto y permite comparaciones de proporción (ej. edad, ingresos, distancia)
+
+:::
+:::
+
+::: {.column width="45%"}
+::: {.tarjeta-blanca}
+::: {.icon-orange}
+<i class="fa-solid fa-layer-group"></i>
+:::
+
+### Categóricas
+
+Representan cualidades o grupos.
+
+
+- **Nominales**: sin orden (ej. género, color)
+- **Ordinales**: con orden (ej. nivel educativo, satisfacción)
+
+:::
+:::
+
+:::
+
+
+## Inspección de Variables {.titulo-especial}
+
+::: {.columns}
+
+::: {.column width="60%"}
+::: {.tarjeta-blanca}
+::: {.icon-orange}
+<i class="fa-solid fa-terminal"></i>
+:::
+
+¿Cómo podemos ver las variables de nuestro conjunto de datos?
+
+```{r}
+#| echo: true
+#| eval: true
+# names(df)
+summary(df)
+```
+
+:::
+:::
+
+::: {.column width="40%"}
+::: {.tarjeta-blanca}
+
+Variables encontradas en el dataset:
+
+::: {.contenedor-tags}
+[Student_ID]{.tag-variable} [Age]{.tag-variable} [Gender]{.tag-variable} [Academic_Level]{.tag-variable} [Country]{.tag-variable} [Avg_Daily_Usage_Hours]{.tag-variable} [Most_Used_Platform]{.tag-variable} [Sleep_Hours]{.tag-variable} [Mental_Health_Score]{.tag-variable} [Overall_Impact]{.tag-variable}
+:::
+
+::: {.callout-tip appearance="simple" icon="true"}
+
+**Actividad:**
+
+Elijan una variable:
+
+- ¿Qué representa?
+- ¿Qué tipo de variable creen que es?
+:::
+
+
+:::
+:::
+
+:::
+
+## Descripción de las variables
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(gt)
+
+# Creamos el dataframe con tus datos
+variables_desc <- data.frame(
+  Variable = c("Student_ID", "Age", "Gender", "Academic_Level", "Country", 
+               "Avg_Daily_Usage_Hours", "Most_Used_Platform", 
+               "Affects_Academic_Performance", "Sleep_Hours_Per_Night", 
+               "Mental_Health_Score", "Overall_Impact"),
+  Descripción = c("Identificador único para cada estudiante.",
+                  "Edad del estudiante (en años).",
+                  "Género del estudiante (Masculino/Femenino).",
+                  "Nivel educativo (Escuela / College / Universidad).",
+                  "País o ubicación del estudiante.",
+                  "Promedio de horas diarias en plataformas digitales/IA.",
+                  "Plataforma usada con más frecuencia (ej. ChatGPT, Gemini).",
+                  "Impacto en el rendimiento (Mejora / Sin cambio / Declive).",
+                  "Duración promedio del sueño por noche.",
+                  "Puntaje que representa el bienestar mental.",
+                  "Efecto general del uso (Positivo / Neutral / Negativo).")
+)
+
+# Renderizamos una tabla elegante con gt
+variables_desc %>%
+  gt() %>%
+  tab_header(
+    title = md("**Diccionario de Datos**")
+  ) %>%
+  cols_label(
+    Variable = md("**Nombre de Variable**"),
+    Descripción = md("**Definición y Categorías**")
+  ) %>%
+  tab_style(
+    style = list(
+      cell_text(weight = "bold", color = "#005088")
+    ),
+    locations = cells_body(columns = Variable)
+  ) %>%
+  opt_stylize(style = 1, color = "blue") %>%
+  tab_options(
+    table.width = pct(100),
+    column_labels.background.color = "#f8fafc"
+  )
+```
+
+
+```{r}
+#| echo: true
+head(df, n = 4)
+```
+
+## Identificación de Datos Faltantes (NA) {.titulo-especial}
+
+
+::: {style="font-size: 0.45em; font-family: 'Lato', sans-serif;"} 
+::: columns
+::: {.column width="48%"}
+::: {.card style="background-color: #fffaf5; border: 1px solid #ffedd5; border-radius: 12px; padding: 20px; height: 420px; display: flex; flex-direction: column; font-weight: 400;"}
+<div>
+<h3 style="color: #d35400; font-size: 1.5em; margin-top: 0; font-weight: 700; margin-bottom: 10px;">
+  <i class="fa-solid fa-circle-question"></i> Concepto
+</h3>
+
+<p style="font-size: 25px; line-height: 1.4; margin-bottom: 15px; font-weight: 400;">
+<strong>**NA (Not Available)**:</strong> Representa la ausencia física de información. Es un valor lógico especial que indica que el dato no fue capturado o se perdió.
+</p>
+
+</div>
+
+::: {.impacto style="background-color: #fee2e2; border-left: 5px solid #ef4444; padding: 12px; border-radius: 0 8px 8px 0; margin-top: auto;"}
+<strong style="color: #991b1b; display: block; margin-bottom: 2px; font-size: 0.85em;">Impacto crítico</strong>
+<span style="color: #7f1d1d; font-size: 0.8em; line-height: 1.2; font-weight: 400;">Su presencia puede reducir el tamaño efectivo de la muestra cuando se eliminan observaciones incompletas, además de introducir sesgos estadísticos si los datos faltantes no ocurren de manera aleatoria.</span>
+:::
+:::
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+::: {.card style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; height: 420px; display: flex; flex-direction: column; font-weight: 400;"}
+<h3 style="color: #475569; font-size: 1.5em; margin-top: 0; font-weight: 700; margin-bottom: 10px;">
+  <i class="fa-solid fa-code"></i> Detección en R
+</h3>
+
+
+::: {style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; flex-grow: 1; font-family: 'Fira Code', monospace; font-size: 0.8em;"}
+
+
+```{r}
+#| echo: true
+#| eval: true
+colSums(is.na(df))
+```
+
+:::
+:::
+:::
+:::
+:::
+
+## Medidas Estadísticas {.titulo-especial}
+
+::: {.columns}
+
+::: {.column width="48%"}
+::: {.tarjeta-blanca}
+::: {.icon-orange}
+<i class="fa-solid fa-comments"></i>
+:::
+### Cualitativa
+
+
+
+- **Frecuencia:**
+  - Absoluta (conteo)
+  - Relativa (%)
+  
+- **Moda:** Categoría más repetida.
+
+::: {.callout-warning appearance="simple" icon="true"}
+
+No permiten operaciones matemáticas porque sus valores son etiquetas o categorías, no cantidades.
+
+- No representan magnitudes numéricas
+- No tienen un orden o distancia definida entre ellas
+
+:::
+
+:::
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+::: {.tarjeta-blanca}
+::: {.icon-orange}
+<i class="fa-solid fa-arrow-up-1-9"></i>
+:::
+### Cuantitativa
+
+- **Tendencia Central:** Media, Mediana, Moda.
+- **Dispersión:** Desviación estándar, Varianza, Rango, Rango intercuartílico.
+- **Posición:** Cuartiles, Deciles, Percentiles.
+- **Forma:** Asimetría, Curtosis.
+- **Relación:** Covarianza, Correlación.
+:::
+:::
+
+:::
+
+
+
+## Sintaxis de dplyr {.titulo-especial}
+
+::: {.columns}
+
+::: {.column width="48%"}
+::: {.tarjeta-blanca}
+::: {.icon-orange}
+<i class="fa-solid fa-code-branch"></i>
+:::
+### El Pipe `|>` , `%>%`
+
+
+Se utiliza para encadenar múltiples operaciones de forma legible.
+
+- Instalación y carga
+
+```{r}
+#| echo: true
+#| eval: true
+# install.packages("dplyr") 
+library(dplyr)
+```
+
+
+- **Sintaxis:** `datos |> operacion()`
+- Facilita la lectura de "arriba hacia abajo".
+
+::: {.callout-warning appearance="simple" icon="true"}
+El pipe original es `%>%`, pero desde R 4.1 se recomienda el nativo `|>`.
+:::
+:::
+:::
+
+::: {.column width="48%"}
+::: {.tarjeta-blanca}
+::: {.icon-orange}
+<i class="fa-solid fa-table-list"></i>
+:::
+### Funciones principales
+
+Dplyr se basa en una "gramática" de manipulación de datos:
+
+1. `filter()`: Selecciona filas basándose en sus valores.
+2. `select()`: Selecciona columnas.
+3. `mutate()`: Crea nuevas variables o transforma las existentes.
+4. `arrange()`: Ordena las filas.
+5. `group_by()`: Agrupa el conjunto de datos por una o más variables.
+6. `summarise()`: Reduce un conjunto de datos a medidas resumen que describen la información.
+
+
+::: {.callout-warning appearance="simple" icon="true"}
+Las funciones devuelven un nuevo dataframe. No modifican el objeto original a menos que se sobrescriba.
+:::
+:::
+:::
+
+:::
+
+## select() + mutate() {.titulo-especial}
+
+::: {.columns}
+
+::: {.column width="60%"}
+::: {.tarjeta-blanca}
+
+::: {.icon-orange}
+<i class="fa-solid fa-code-branch"></i>
+:::
+
+¿Qué variables del dataset son relevantes para analizar el impacto de redes sociales en la salud mental?
+
+  
+```{r}
+#| echo: true
+#| eval: true
+#| code-line-numbers: "1|2|3|4|5|6|7|9|11|12|14"
+df_select <- df %>% 
+  select(Age, Gender, Mental_Health_Score, 
+         Avg_Daily_Usage_Hours, Sleep_Hours_Per_Night, 
+         Overall_Impact) %>%
+  mutate(Uso_Categoria = case_when(
+    Avg_Daily_Usage_Hours < 2 ~ "Bajo",
+    Avg_Daily_Usage_Hours >= 2 & Avg_Daily_Usage_Hours <= 5 ~ "Moderado",
+    Avg_Daily_Usage_Hours > 5 ~ "Intenso"
+  ))
+
+df_select1 <- df %>% 
+  select(-Student_ID)
+
+head(df_select,4)
+```
+
+
+:::
+:::
+
+::: {.column width="40%"}
+::: {.tarjeta-blanca}
+
+::: {.icon-orange}
+<i class="fa-solid fa-table-list"></i>
+:::
+
+### Ejercicio
+
+¿Qué tipo de variables predominan en el dataset?
+
+
+::: {.fragment}
+```{r}
+#| echo: true
+#| eval: false
+df_cuan <- df %>% 
+  select(Age, Avg_Daily_Usage_Hours,
+         Sleep_Hours_Per_Night,Mental_Health_Score)
+
+df_cat <- df %>% 
+  select(Gender, Academic_Level,
+         Country,Most_Used_Platform,
+         Affects_Academic_Performance,Overall_Impact)
+
+```
+:::
+
+:::
+:::
+
+:::
+
+
+## filter() + arrange() {.titulo-especial}
+
+::: {.columns}
+
+::: {.column width="50%"}
+::: {.tarjeta-blanca}
+
+¿Cómo cambia el puntaje de salud mental en estudiantes que usan redes más de 5 horas al día?
+
+```{r}
+#| echo: true
+#| eval: true
+#| code-line-numbers: "1|2|3|4|6"
+df_filter <- df %>% 
+  filter(Avg_Daily_Usage_Hours > 5) %>% 
+  select(Avg_Daily_Usage_Hours, Mental_Health_Score)  %>%
+  arrange(Mental_Health_Score)
+
+head(df_filter,7)
+
+```
+
+::: {.callout-warning appearance="simple"}
+filter() permite usar múltiples condiciones separadas por comas.
+:::
+
+:::
+:::
+
+::: {.column width="50%"}
+::: {.tarjeta-blanca}
+
+::: {.icon-orange}
+<i class="fa-solid fa-filter"></i>
+:::
+
+### Ejercicio
+
+¿Qué estudiantes duermen menos de 6 horas y usan redes más de 4 horas?
+
+::: {.fragment}
+```{r}
+#| echo: true
+#| eval: true
+
+df_filter1 <- df_select %>%
+  filter(Sleep_Hours_Per_Night < 6,
+         Avg_Daily_Usage_Hours > 4)
+
+head(df_filter1,4)
+```
+:::
+
+
+:::
+:::
+
+:::
+
+## group_by() + summarise() {.titulo-especial}
+
+::: {.columns}
+
+::: {.column width="55%"}
+::: {.tarjeta-blanca}
+
+¿Cuál es el promedio del puntaje de salud mental por género?
+
+```{r}
+#| echo: true
+#| eval: true
+#| code-line-numbers: "1|2|3"
+df %>% 
+  group_by(Gender) %>%
+  summarise(Prom = mean(Mental_Health_Score))
+```
+
+¿Cómo varía el uso promedio según nivel académico?
+
+::: {.fragment}
+```{r}
+#| echo: true
+#| eval: true
+#| code-line-numbers: "1|2|3"
+df %>% 
+  group_by(Academic_Level) %>%
+  summarise(Prom = mean(Avg_Daily_Usage_Hours))
+```
+:::
+
+:::
+:::
+
+::: {.column width="45%"}
+::: {.tarjeta-blanca}
+
+::: {.icon-orange}
+<i class="fa-solid fa-chart-column"></i>
+:::
+
+### Ejercicio 
+
+¿Qué aplicación tiene más impacto negativo?
+
+::: {.fragment}
+```{r}
+#| echo: true
+#| eval: true
+df %>% 
+  filter(Overall_Impact == "Negative") %>% 
+  group_by(Most_Used_Platform) %>% 
+  summarise(Num = n()) %>% 
+  filter(Num == max(Num))
+```
+:::
+
+:::
+:::
+
+:::
+
+## Sintaxis de ggplot2 {.titulo-especial}
+
+
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: "3|5|6|9"
+# install.packages("ggplot2") 
+library(ggplot2)
+ggplot(data, 
+       # MAPEO (Aes): Aquí se conectan las columnas de los datos 
+       mapping = aes(x = var1,      # Eje X
+                     y = var2          # Eje y 
+                     )) +
+  # GEOMETRÍA (Geom): Define qué forma física tomarán esos datos
+  geom_point()  
+```
+
+::: {style="font-size: 0.45em; font-family: 'Lato', sans-serif; margin-top: 20px;"}
+
+:::: columns
+
+::: {.column width="33%"}
+<div style="
+background: #ffffff;
+border-radius: 22px;
+padding: 35px 28px;
+min-height: 580px;
+border: 1px solid #e5e7eb;
+box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+">
+<h3 style="
+margin-top: 5px;
+margin-bottom: 18px;
+font-size: 1.35em;
+font-weight: 800;
+color: #1e293b;
+text-transform: uppercase;
+letter-spacing: 0.5px;">
+Datos (data)
+</h3>
+
+<p style="
+color: #475569;
+font-size: 1em;
+line-height: 1.6;">
+Información estructurada que se desea graficar.
+</p>
+
+<div style="
+background: #f8fafc;
+border-radius: 14px;
+padding: 18px 20px;
+font-size: 0.95em;
+line-height: 1.8;
+color: #475569;
+margin-bottom: 25px;
+border: 1px solid #f1f5f9;
+">
+- <span style="color:#f29100;"><b>Formato:</b></span> `data.frame` o `tibble`
+- <span style="color:#f29100;"><b>Ubicación:</b></span> argumento dentro de `ggplot()`
+</div>
+
+<div style="text-align:center;">
+<i class="fa-solid fa-database" style="font-size: 2.8em; color: #f29100; margin-bottom: 18px;"></i>
+
+
+</div>
+
+</div>
+:::
+
+::: {.column width="33%"}
+<div style="
+background: #ffffff;
+border-radius: 22px;
+padding: 35px 28px;
+min-height: 580px;
+border: 1px solid #e5e7eb;
+box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+">
+
+<h3 style="
+margin-top: 5px;
+margin-bottom: 18px;
+font-size: 1.35em;
+font-weight: 800;
+color: #1e293b;
+text-transform: uppercase;
+letter-spacing: 0.5px;">
+Mapeo (aes)
+</h3>
+
+<p style="
+color: #475569;
+font-size: 1em;
+line-height: 1.6;">
+Relación entre variables y atributos visuales.
+</p>
+
+<div style="
+background: #f8fafc;
+border-radius: 14px;
+padding: 18px 20px;
+font-size: 0.95em;
+line-height: 1.9;
+color: #475569;
+margin-bottom: 25px;
+border: 1px solid #f1f5f9;
+">
+<ul style="padding-left: 18px; margin: 0; list-style-type: none;">
+<li><span style="color:#f29100;">•</span> <code>x</code>, <code>y</code>: ejes</li>
+<li><span style="color:#f29100;">•</span> <code>color</code>: borde</li>
+<li><span style="color:#f29100;">•</span> <code>fill</code>: relleno</li>
+<li><span style="color:#f29100;">•</span> <code>size</code>: tamaño</li>
+<li><span style="color:#f29100;">•</span> <code>shape</code>: forma</li>
+<li><span style="color:#f29100;">•</span> <code>alpha</code>: opacidad</li>
+</ul>
+</div>
+
+<div style="text-align:center;">
+<i class="fa-solid fa-wand-magic-sparkles" style="font-size: 2.8em; color: #f29100; margin-bottom: 18px;"></i>
+
+</div>
+
+</div>
+:::
+
+::: {.column width="33%"}
+<div style="
+background: #ffffff;
+border-radius: 22px;
+padding: 35px 28px;
+min-height: 580px;
+border: 1px solid #e5e7eb;
+box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+">
+
+<h3 style="
+margin-top: 5px;
+margin-bottom: 18px;
+font-size: 1.35em;
+font-weight: 800;
+color: #1e293b;
+text-transform: uppercase;
+letter-spacing: 0.5px;">
+Geometría (geom)
+</h3>
+
+<p style="
+color: #475569;
+font-size: 1em;
+line-height: 1.6;">
+La capa que define el tipo de gráfico.
+</p>
+
+<div style="
+background: #f8fafc;
+border-radius: 14px;
+padding: 18px 20px;
+font-size: 0.93em;
+line-height: 1.9;
+color: #475569;
+margin-bottom: 25px;
+border: 1px solid #f1f5f9;
+">
+- `geom_point()` → dispersión  
+- `geom_line()` → líneas  
+- `geom_bar()` → barras  
+- `geom_boxplot()` → cajas  
+- `geom_histogram()` → histogramas  
+</div>
+
+<div style="text-align:center;">
+<i class="fa-solid fa-shapes" style="font-size: 2.8em; color: #f29100; margin-bottom: 18px;"></i>
+
+
+</div>
+
+</div>
+:::
+
+::::
+
+:::
+
+
+## Gráficos para variables cualitativas {.titulo-especial}
+
+::: {style="font-size: 0.45em; font-family: 'Lato', sans-serif; margin-top: 20px;"}
+
+:::: columns
+
+::: {.column width="48%"}
+
+<div style="
+background: #ffffff; 
+border-radius: 22px; 
+padding: 35px 28px; 
+min-height: 600px; 
+border: 1px solid #e5e7eb; 
+box-shadow: 0 6px 18px rgba(0,0,0,0.05); 
+display: flex; 
+flex-direction: column;
+">
+
+<h3 style="
+color: #1e293b;
+font-size: 1.2em;
+font-weight: 800;
+margin-bottom: 18px;
+text-align: center;
+">
+Gráfico de barras
+</h3>
+
+<div style="
+background: #f8fafc; 
+border-radius: 14px; 
+padding: 15px; 
+border: 1px solid #f1f5f9;
+text-align: left;
+">
+
+```{r}
+#| echo: true
+#| eval: true
+#| code-line-numbers: "1|2|7|14"
+ggplot(df, aes(x = Academic_Level, fill = Academic_Level)) +
+  geom_bar(
+    color = "white",
+    linewidth = 0.5,
+    alpha = 0.9
+  ) +
+  scale_fill_manual(
+    values = c(
+      "#8b5cf6",
+      "#1e293b",
+      "#528B8B"
+    )
+  ) +
+  labs(
+    title = "Frecuencia por nivel educativo",
+    x = "Nivel educativo",
+    y = "Frecuencia",
+    fill = "Nivel educativo"
+  )
+```
+</div> </div>
+
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+
+<div style="
+background: #ffffff; 
+border-radius: 22px; 
+padding: 35px 28px; 
+min-height: 600px; 
+border: 1px solid #e5e7eb; 
+box-shadow: 0 6px 18px rgba(0,0,0,0.05); 
+display: flex; 
+flex-direction: column;
+">
+
+<h3 style="
+color: #1e293b;
+font-size: 1.2em;
+font-weight: 800;
+margin-bottom: 18px;
+text-align: center;
+">
+Gráfico de pastel
+</h3>
+
+<div style="
+background: #f8fafc; 
+border-radius: 14px; 
+padding: 15px; 
+border: 1px solid #f1f5f9;
+text-align: left;
+">
+
+```{r}
+#| echo: true
+#| eval: true
+#| code-line-numbers: "1|2|7|8|24|29"
+ggplot(df, aes(x = "", fill = Most_Used_Platform)) +
+  geom_bar(
+    width = 1,
+    color = "white",
+    linewidth = 0.7
+  ) +
+  coord_polar(theta = "y") +
+  scale_fill_manual(
+  values = c(
+    "#1e293b", 
+    "#334155",
+    "#475569",
+    "#64748b",
+    "#528B8B", 
+    "#5f9ea0",
+    "#6ba3a5",
+    "#7fb3b5",
+    "#8b5cf6", 
+    "#9f75ff",
+    "#b794f4",
+    "#c4b5fd"
+  )
+) +
+  labs(
+    title = "Uso de plataformas digitales",
+    fill = "Plataformas"
+  ) +
+  theme_void()
+```
+</div> </div>
+
+
+
+:::
+
+::::
+
+:::
+  
+
+## Gráficos para variables cuantitativas {.titulo-especial}
+
+::: {style="font-size: 0.45em; font-family: 'Lato', sans-serif; margin-top: 20px;"}
+
+:::: columns
+
+::: {.column width="48%"}
+
+<div style="
+background: #ffffff; 
+border-radius: 22px; 
+padding: 35px 28px; 
+min-height: 600px; 
+border: 1px solid #e5e7eb; 
+box-shadow: 0 6px 18px rgba(0,0,0,0.05); 
+display: flex; 
+flex-direction: column;
+">
+
+<h3 style="
+color: #1e293b;
+font-size: 1.2em;
+font-weight: 800;
+margin-bottom: 18px;
+text-align: center;
+">
+Histograma
+</h3>
+
+<div style="
+background: #f8fafc; 
+border-radius: 14px; 
+padding: 15px; 
+border: 1px solid #f1f5f9;
+text-align: left;
+">
+
+```{r}
+#| echo: true
+#| eval: true
+#| code-line-numbers: "1|2|9"
+ggplot(df, aes(x = Avg_Daily_Usage_Hours)) +
+  geom_histogram(
+    bins = 25, # Cantidad de barras
+    fill = "#f29100",
+    color = "white",  # Color del borde de las barras
+    linewidth = 0.4, # Grosor del borde de cada barra
+    alpha = 0.9 # Nivel de transparencia
+  ) +
+  labs(
+    title = "Distribución del uso diario promedio",
+    x = "Horas de uso diario",
+    y = "Frecuencia"
+  ) 
+```
+</div> </div>
+
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+
+<div style="
+background: #ffffff; 
+border-radius: 22px; 
+padding: 35px 28px; 
+min-height: 600px; 
+border: 1px solid #e5e7eb; 
+box-shadow: 0 6px 18px rgba(0,0,0,0.05); 
+display: flex; 
+flex-direction: column;
+">
+
+<h3 style="
+color: #1e293b;
+font-size: 1.2em;
+font-weight: 800;
+margin-bottom: 18px;
+text-align: center;
+">
+Bloxplot
+</h3>
+
+<div style="
+background: #f8fafc; 
+border-radius: 14px; 
+padding: 15px; 
+border: 1px solid #f1f5f9;
+text-align: left;
+">
+
+```{r}
+#| echo: true
+#| eval: true
+#| code-line-numbers: "1|2|3|9|14|19"
+
+ggplot(
+  df, aes(x='',y = Sleep_Hours_Per_Night)) +
+  geom_boxplot(
+    color = "#f29100",
+    size = 0.8,
+    width = 0.2,
+    alpha = 0.7
+  ) +
+  stat_boxplot(
+    geom = "errorbar",
+    width = 0.15,
+    color = "#f29100"
+  ) +
+  geom_jitter(
+  width = 0.07,
+  color = "#f29100",
+  alpha = 0.15
+  ) +
+  labs(
+    title = "Boxplot de las horas de sueño por noche",
+    x = '',
+    y = "Horas de sueño por noche"
+  )
+```
+</div> </div>
+
+
+
+:::
+
+::::
+
+:::
+  
+
+## Análisis gráfico entre dos variables {.titulo-especial}
+
+::: {style="font-size: 0.45em; font-family: 'Lato', sans-serif; margin-top: 20px;"}
+
+:::: columns
+
+::: {.column width="48%"}
+
+<div style="
+background: #ffffff; 
+border-radius: 22px; 
+padding: 35px 28px; 
+min-height: 600px; 
+border: 1px solid #e5e7eb; 
+box-shadow: 0 6px 18px rgba(0,0,0,0.05); 
+display: flex; 
+flex-direction: column;
+">
+
+<h3 style="
+color: #1e293b;
+font-size: 1.2em;
+font-weight: 800;
+margin-bottom: 18px;
+text-align: center;
+">
+Boxplot
+</h3>
+
+<div style="
+background: #f8fafc; 
+border-radius: 14px; 
+padding: 15px; 
+border: 1px solid #f1f5f9;
+text-align: left;
+">
+
+```{r}
+#| echo: true
+#| eval: true
+#| code-line-numbers: "1|2|8|13|18"
+ggplot(df, aes(x = Academic_Level , y= Avg_Daily_Usage_Hours)) +
+  geom_boxplot(
+    color = "#f29100",
+    size = 0.8,
+    width = 0.4,
+    alpha = 0.7
+  ) +
+  stat_boxplot(
+    geom = "errorbar",
+    width = 0.3,
+    color = "#f29100"
+  ) +
+  geom_jitter(
+  width = 0.07,
+  color = "#f29100",
+  alpha = 0.2
+  ) +
+  labs(
+    title = "Distribución del uso diario promedio por nivel academico",
+    x = "Nivel académico",
+    y = "Uso diario promedio"
+  )
+```
+</div> </div>
+
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+
+<div style="
+background: #ffffff; 
+border-radius: 22px; 
+padding: 35px 28px; 
+min-height: 600px; 
+border: 1px solid #e5e7eb; 
+box-shadow: 0 6px 18px rgba(0,0,0,0.05); 
+display: flex; 
+flex-direction: column;
+">
+
+<h3 style="
+color: #1e293b;
+font-size: 1.2em;
+font-weight: 800;
+margin-bottom: 18px;
+text-align: center;
+">
+Gráfico de dispersión
+</h3>
+
+<div style="
+background: #f8fafc; 
+border-radius: 14px; 
+padding: 15px; 
+border: 1px solid #f1f5f9;
+text-align: left;
+">
+
+```{r}
+#| echo: true
+#| eval: true
+#| code-line-numbers: "1|2|3|8|14"
+ggplot(
+  df, aes( x = Avg_Daily_Usage_Hours, y = Sleep_Hours_Per_Night)) +
+  geom_point(
+    color = "#f29100",
+    size = 3,
+    alpha = 0.7
+  ) +
+  geom_smooth(
+    method = "lm",
+    se = TRUE,
+    color = "#64748b",
+    linewidth = 1
+  ) +
+  labs(
+    title = "Relación entre uso diario y horas de sueño",
+    x = "Horas promedio de uso diario",
+    y = "Horas de sueño por noche"
+  ) 
+```
+</div> </div>
+
+
+
+:::
+
+::::
+
+:::
+  
+  
+  
+  
+## ¿Se puede engañar con gráficos? {.titulo-especial}
+
+::: {style="font-size: 0.45em; font-family: 'Lato', sans-serif; margin-top: 15px;"}
+
+<div style="
+background: #fff7ed;
+border-left: 6px solid #f29100;
+padding: 14px 18px;
+border-radius: 14px;
+margin-bottom: 22px;
+color: #7c2d12;
+font-weight: 600;
+">
+
+Veamos cómo un mismo conjunto de datos puede transmitir mensajes completamente distintos dependiendo de la escala utilizada.
+
+</div>
+
+::: fragment
+
+<div style="
+background: #ffffff;
+border-radius: 22px;
+padding: 24px 26px;
+margin-bottom: 22px;
+border: 1px solid #e5e7eb;
+box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+">
+
+<h3 style="
+color: #1e293b;
+font-size: 1.05em;
+font-weight: 800;
+margin-bottom: 18px;
+text-align: center;
+">
+Preparación de los datos
+</h3>
+
+<div style="
+background: #f8fafc;
+border-radius: 14px;
+padding: 15px;
+border: 1px solid #f1f5f9;
+">
+
+```{r}
+#| echo: true
+df_plot <- df %>%
+  group_by(Overall_Impact) %>%
+  summarise(
+    promedio = mean(
+      Avg_Daily_Usage_Hours,
+      na.rm = TRUE
+    )
+  )
+```
+
+</div>
+</div>
+
+:::
+
+:::: columns
+
+::: {.column width="48%"}
+
+::: fragment
+
+<div style="
+background: #ffffff;
+border-radius: 22px;
+padding: 30px 26px;
+min-height: 580px;
+border: 1px solid #e5e7eb;
+box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+display: flex;
+flex-direction: column;
+">
+
+<div style="
+height: 6px;
+width: 70px;
+background: #f29100;
+border-radius: 999px;
+margin: 0 auto 18px auto;
+"></div>
+
+<h3 style="
+color: #1e293b;
+font-size: 1.15em;
+font-weight: 800;
+margin-bottom: 18px;
+text-align: center;
+">
+Gráfico correcto
+</h3>
+
+<div style="
+background: #f8fafc;
+border-radius: 14px;
+padding: 15px;
+border: 1px solid #f1f5f9;
+">
+
+```{r}
+#| echo: true
+#| fig-width: 7
+#| fig-height: 4.5
+
+ggplot(
+  df_plot,
+  aes(
+    x = factor(Overall_Impact),
+    y = promedio
+  )
+) +
+  geom_col(
+    fill = "#f29100",
+    width = 0.7
+  ) +
+  labs(
+    x = "Nivel de impacto",
+    y = "Horas promedio"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_blank(),
+    panel.grid.major.x = element_blank(),
+    axis.title = element_text(size = 11),
+    axis.text = element_text(size = 10)
+  )
+```
+
+</div>
+
+<div style="
+margin-top: 18px;
+padding: 14px;
+background: #ecfdf5;
+border-radius: 12px;
+font-size: 0.9em;
+color: #f29100;
+line-height: 1.5;
+">
+
+La escala inicia en cero, por lo que las diferencias entre grupos se representan de forma proporcional y objetiva.
+
+</div>
+
+</div>
+
+:::
+
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+
+::: fragment
+
+<div style="
+background: #ffffff;
+border-radius: 22px;
+padding: 30px 26px;
+min-height: 580px;
+border: 1px solid #e5e7eb;
+box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+display: flex;
+flex-direction: column;
+">
+
+<div style="
+height: 6px;
+width: 70px;
+background: #64748b;
+border-radius: 999px;
+margin: 0 auto 18px auto;
+"></div>
+
+<h3 style="
+color: #1e293b;
+font-size: 1.15em;
+font-weight: 800;
+margin-bottom: 18px;
+text-align: center;
+">
+Gráfico manipulado
+</h3>
+
+<div style="
+background: #f8fafc;
+border-radius: 14px;
+padding: 15px;
+border: 1px solid #f1f5f9;
+">
+
+```{r}
+#| echo: true
+#| fig-width: 7
+#| fig-height: 4.5
+
+ggplot(
+  df_plot,
+  aes(
+    x = factor(Overall_Impact),
+    y = promedio
+  )
+) +
+  geom_col(
+    fill = "#64748b",
+    width = 0.7
+  ) +
+  coord_cartesian(
+    ylim = c(3.6, 8)
+  ) +
+  labs(
+    x = "Nivel de impacto",
+    y = "Horas promedio"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_blank(),
+    panel.grid.major.x = element_blank(),
+    axis.title = element_text(size = 11),
+    axis.text = element_text(size = 10)
+  )
+```
+
+</div>
+
+<div style="
+margin-top: 18px;
+padding: 14px;
+background: #fef2f2;
+border-radius: 12px;
+font-size: 0.9em;
+color: #64748b ;
+line-height: 1.5;
+">
+
+Al recortar el eje Y, las diferencias parecen mucho más grandes de lo que realmente son, generando una interpretación engañosa.
+
+</div>
+
+</div>
+
+:::
+
+:::
+
+::::
+
+:::
+
+# {visibility="unpaged"}
+
+::: {.container-gracias}
+
+::: {.tarjeta-blanca-final}
+
+::: {.icon-cierre}
+<i class="fa-solid fa-rocket"></i> <i class="fa-solid fa-chart-pie"></i> <i class="fa-solid fa-laptop-code"></i>
+:::
+
+# ¡Gracias! {.titulo-gracias}
+
+::: {.mensaje-final}
+Gracias por acompañarnos en esta sesión.  
+Esperamos verlos próximamente en **[GEA]{.resaltado-naranja}**  
+y en las siguientes sesiones
+:::
+
+<br>
+
+::: {.footer-final}
+¡Nos vemos en la próxima sesión!
+:::
+
+:::
+
+:::

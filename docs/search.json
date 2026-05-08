@@ -144,7 +144,7 @@
     "href": "index.html#material",
     "title": "Taller de R",
     "section": "Material",
-    "text": "Material\n\nDiapositivas de la primera sesión"
+    "text": "Material\n\nDiapositivas de la primera sesión\nDiapositivas de la segunda sesión"
   },
   {
     "objectID": "Taller/DiaposTallerR.html#segunda-herramienta-filter",
@@ -215,5 +215,124 @@
     "title": "Taller R",
     "section": "Un lenguaje para trabajar con datos",
     "text": "Un lenguaje para trabajar con datos\n\n es un lenguaje de programación usado para explorar, analizar y comunicar datos.\n\nOrganizar información\nAnalizar datos\nCrear gráficos\nComunicar información."
+  },
+  {
+    "objectID": "Taller2/DiaposTallerR2Sofi.html#configuración-inicial",
+    "href": "Taller2/DiaposTallerR2Sofi.html#configuración-inicial",
+    "title": "Taller R",
+    "section": "Configuración Inicial",
+    "text": "Configuración Inicial\n\n\n\n\n\n\nEl Directorio\n¿Dónde está trabajando R? Define la ubicación física para leer tus archivos.\n\ngetwd() # Ver ruta actual\ndir() # Listar archivos disponibles\n# choose.files()\nsetwd(\"C:\\\\Users\\\\sofia\\\\OneDrive\\\\Documentos\\\\2026-1\\\\GEA\\\\Taller2\") # Cambiar de carpeta\n\n\n\n\n\n\n\n\nGestión de Paquetes\nExtiende las capacidades de R instalando nuevas librerías especializadas.\n\nInstalación: Se realiza una sola vez por equipo.\nCarga: Se debe hacer en cada sesión nueva de R.\n\n\n# install.packages(\"dplyr\") \nlibrary(dplyr)\n\nWarning: package 'dplyr' was built under R version 4.5.3\n\n\n\nAdjuntando el paquete: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\n# install.packages(\"ggplot2\")\nlibrary(ggplot2)\n\n\n:::"
+  },
+  {
+    "objectID": "Taller2/DiaposTallerR2Sofi.html#caso-de-estudio-e-importación",
+    "href": "Taller2/DiaposTallerR2Sofi.html#caso-de-estudio-e-importación",
+    "title": "Taller R",
+    "section": "Caso de Estudio e Importación",
+    "text": "Caso de Estudio e Importación\n\n\n\n\n\n\nImpacto de Redes\nLos datos que se usarán en esta sesión provienen de Kaggle. Estos los pueden encontrar el siguiente link.\nContienen información sobre el impacto de las plataformas digitales y la IA en estudiantes, tanto en su vida personal como académica.\n\nFormato: .csv\nLectura en R: read.csv()\n\n\ndf &lt;- read.csv(\"Social_media_impact_on_life.csv\")\n\n\n\n\n\n\n\nTipos de archivos\nR puede leer casi cualquier base de datos:\n\nTexto plano: CSV (.csv), TXT (.txt)\nHojas de cálculo: Excel (.xlsx)\nOtros software: Stata (.dta), SAS (.sas7bdat)\nFormatos de R: RData (.RData), Rda (.rda)\n\n\n\n\n\n\n\nAlgunas funciones para importar archivos vienen preinstalados en R, pero otras requieren instalar paquetes adicionales. Por ejemplo, archivos .xlsx."
+  },
+  {
+    "objectID": "Taller2/DiaposTallerR2Sofi.html#tipos-de-variables",
+    "href": "Taller2/DiaposTallerR2Sofi.html#tipos-de-variables",
+    "title": "Taller R",
+    "section": "Tipos de Variables",
+    "text": "Tipos de Variables\n\n\n\n\n\n\nNuméricas\nRepresentan cantidades medibles y permiten operaciones matemáticas.\n\nDiscretas: valores enteros (ej. número de hijos)\nContinuas: cualquier valor en un intervalo (ej. peso, altura)\nIntervalo: No tiene cero absoluto (ej. temperatura en °C)\nRazón: Tiene cero absoluto y permite comparaciones de proporción (ej. edad, ingresos, distancia)\n\n\n\n\n\n\n\nCategóricas\nRepresentan cualidades o grupos.\n\nNominales: sin orden (ej. género, color)\nOrdinales: con orden (ej. nivel educativo, satisfacción)"
+  },
+  {
+    "objectID": "Taller2/DiaposTallerR2Sofi.html#inspección-de-variables",
+    "href": "Taller2/DiaposTallerR2Sofi.html#inspección-de-variables",
+    "title": "Taller R",
+    "section": "Inspección de Variables",
+    "text": "Inspección de Variables\n\n\n\n\n\n\n¿Cómo podemos ver las variables de nuestro conjunto de datos?\n\n# names(df)\nsummary(df)\n\n   Student_ID          Age           Gender          Academic_Level    \n Min.   :   1.0   Min.   :18.00   Length:1705        Length:1705       \n 1st Qu.: 214.0   1st Qu.:19.00   Class :character   Class :character  \n Median : 427.0   Median :21.00   Mode  :character   Mode  :character  \n Mean   : 439.5   Mean   :20.85                                        \n 3rd Qu.: 640.0   3rd Qu.:22.00                                        \n Max.   :1000.0   Max.   :24.00                                        \n   Country          Avg_Daily_Usage_Hours Most_Used_Platform\n Length:1705        Min.   :1.500         Length:1705       \n Class :character   1st Qu.:3.800         Class :character  \n Mode  :character   Median :5.100         Mode  :character  \n                    Mean   :5.104                           \n                    3rd Qu.:6.300                           \n                    Max.   :8.500                           \n Affects_Academic_Performance Sleep_Hours_Per_Night Mental_Health_Score\n Length:1705                  Min.   :3.800         Min.   :4.000      \n Class :character             1st Qu.:5.600         1st Qu.:5.000      \n Mode  :character             Median :6.600         Median :6.000      \n                              Mean   :6.599         Mean   :6.215      \n                              3rd Qu.:7.500         3rd Qu.:7.000      \n                              Max.   :9.600         Max.   :9.000      \n Overall_Impact    \n Length:1705       \n Class :character  \n Mode  :character  \n                   \n                   \n                   \n\n\n\n\n\nVariables encontradas en el dataset:\n\nStudent_ID Age Gender Academic_Level Country Avg_Daily_Usage_Hours Most_Used_Platform Sleep_Hours Mental_Health_Score Overall_Impact\n\n\n\n\n\n\n\nActividad:\nElijan una variable:\n\n¿Qué representa?\n¿Qué tipo de variable creen que es?"
+  },
+  {
+    "objectID": "Taller2/DiaposTallerR2Sofi.html#descripción-de-las-variables",
+    "href": "Taller2/DiaposTallerR2Sofi.html#descripción-de-las-variables",
+    "title": "Taller R",
+    "section": "Descripción de las variables",
+    "text": "Descripción de las variables\n\n\n\n\n\n\n\n\nDiccionario de Datos\n\n\nNombre de Variable\nDefinición y Categorías\n\n\n\n\nStudent_ID\nIdentificador único para cada estudiante.\n\n\nAge\nEdad del estudiante (en años).\n\n\nGender\nGénero del estudiante (Masculino/Femenino).\n\n\nAcademic_Level\nNivel educativo (Escuela / College / Universidad).\n\n\nCountry\nPaís o ubicación del estudiante.\n\n\nAvg_Daily_Usage_Hours\nPromedio de horas diarias en plataformas digitales/IA.\n\n\nMost_Used_Platform\nPlataforma usada con más frecuencia (ej. ChatGPT, Gemini).\n\n\nAffects_Academic_Performance\nImpacto en el rendimiento (Mejora / Sin cambio / Declive).\n\n\nSleep_Hours_Per_Night\nDuración promedio del sueño por noche.\n\n\nMental_Health_Score\nPuntaje que representa el bienestar mental.\n\n\nOverall_Impact\nEfecto general del uso (Positivo / Neutral / Negativo).\n\n\n\n\n\n\n\n\nhead(df, n = 4)\n\n  Student_ID Age Gender Academic_Level Country Avg_Daily_Usage_Hours\n1        232  21   Male  Undergraduate   Other                   4.0\n2        564  23 Female  Undergraduate   Other                   1.6\n3        788  22   Male       Graduate  Canada                   4.6\n4        686  18   Male  Undergraduate   Other                   7.0\n  Most_Used_Platform Affects_Academic_Performance Sleep_Hours_Per_Night\n1           Facebook                           No                   6.7\n2           LinkedIn                           No                   8.6\n3          Instagram                           No                   6.7\n4           Snapchat                          Yes                   5.4\n  Mental_Health_Score Overall_Impact\n1                 6.8        Neutral\n2                 7.6       Positive\n3                 7.0        Neutral\n4                 5.3       Negative"
+  },
+  {
+    "objectID": "Taller2/DiaposTallerR2Sofi.html#identificación-de-datos-faltantes-na",
+    "href": "Taller2/DiaposTallerR2Sofi.html#identificación-de-datos-faltantes-na",
+    "title": "Taller R",
+    "section": "Identificación de Datos Faltantes (NA)",
+    "text": "Identificación de Datos Faltantes (NA)\n\n\n\n\n\n\n Concepto\n\n\nNA (Not Available): Representa la ausencia física de información. Es un valor lógico especial que indica que el dato no fue capturado o se perdió.\n\n\n\nImpacto crítico Su presencia puede reducir el tamaño efectivo de la muestra cuando se eliminan observaciones incompletas, además de introducir sesgos estadísticos si los datos faltantes no ocurren de manera aleatoria.\n\n\n\n\n\n\n\n Detección en R\n\n\n\ncolSums(is.na(df))\n\n                  Student_ID                          Age \n                           0                            0 \n                      Gender               Academic_Level \n                           0                            0 \n                     Country        Avg_Daily_Usage_Hours \n                           0                            0 \n          Most_Used_Platform Affects_Academic_Performance \n                           0                            0 \n       Sleep_Hours_Per_Night          Mental_Health_Score \n                           0                            0 \n              Overall_Impact \n                           0"
+  },
+  {
+    "objectID": "Taller2/DiaposTallerR2Sofi.html#medidas-estadísticas",
+    "href": "Taller2/DiaposTallerR2Sofi.html#medidas-estadísticas",
+    "title": "Taller R",
+    "section": "Medidas Estadísticas",
+    "text": "Medidas Estadísticas\n\n\n\n\n\n\nCualitativa\n\nFrecuencia:\n\nAbsoluta (conteo)\nRelativa (%)\n\nModa: Categoría más repetida.\n\n\n\n\n\n\n\nNo permiten operaciones matemáticas porque sus valores son etiquetas o categorías, no cantidades.\n\nNo representan magnitudes numéricas\nNo tienen un orden o distancia definida entre ellas\n\n\n\n\n\n\n\n\n\n\n\n\nCuantitativa\n\nTendencia Central: Media, Mediana, Moda.\nDispersión: Desviación estándar, Varianza, Rango, Rango intercuartílico.\nPosición: Cuartiles, Deciles, Percentiles.\nForma: Asimetría, Curtosis.\nRelación: Covarianza, Correlación."
+  },
+  {
+    "objectID": "Taller2/DiaposTallerR2Sofi.html#sintaxis-de-dplyr",
+    "href": "Taller2/DiaposTallerR2Sofi.html#sintaxis-de-dplyr",
+    "title": "Taller R",
+    "section": "Sintaxis de dplyr",
+    "text": "Sintaxis de dplyr\n\n\n\n\n\n\nEl Pipe |&gt; , %&gt;%\nSe utiliza para encadenar múltiples operaciones de forma legible.\n\nInstalación y carga\n\n\n# install.packages(\"dplyr\") \nlibrary(dplyr)\n\n\nSintaxis: datos |&gt; operacion()\nFacilita la lectura de “arriba hacia abajo”.\n\n\n\n\n\n\n\nEl pipe original es %&gt;%, pero desde R 4.1 se recomienda el nativo |&gt;.\n\n\n\n\n\n\n\n\n\nFunciones principales\nDplyr se basa en una “gramática” de manipulación de datos:\n\nfilter(): Selecciona filas basándose en sus valores.\nselect(): Selecciona columnas.\nmutate(): Crea nuevas variables o transforma las existentes.\narrange(): Ordena las filas.\ngroup_by(): Agrupa el conjunto de datos por una o más variables.\nsummarise(): Reduce un conjunto de datos a medidas resumen que describen la información.\n\n\n\n\n\n\n\nLas funciones devuelven un nuevo dataframe. No modifican el objeto original a menos que se sobrescriba."
+  },
+  {
+    "objectID": "Taller2/DiaposTallerR2Sofi.html#select-mutate",
+    "href": "Taller2/DiaposTallerR2Sofi.html#select-mutate",
+    "title": "Taller R",
+    "section": "select() + mutate()",
+    "text": "select() + mutate()\n\n\n\n\n\n\n¿Qué variables del dataset son relevantes para analizar el impacto de redes sociales en la salud mental?\n\ndf_select &lt;- df %&gt;% \n  select(Age, Gender, Mental_Health_Score, \n         Avg_Daily_Usage_Hours, Sleep_Hours_Per_Night, \n         Overall_Impact) %&gt;%\n  mutate(Uso_Categoria = case_when(\n    Avg_Daily_Usage_Hours &lt; 2 ~ \"Bajo\",\n    Avg_Daily_Usage_Hours &gt;= 2 & Avg_Daily_Usage_Hours &lt;= 5 ~ \"Moderado\",\n    Avg_Daily_Usage_Hours &gt; 5 ~ \"Intenso\"\n  ))\n\ndf_select1 &lt;- df %&gt;% \n  select(-Student_ID)\n\nhead(df_select,4)\n\n  Age Gender Mental_Health_Score Avg_Daily_Usage_Hours Sleep_Hours_Per_Night\n1  21   Male                 6.8                   4.0                   6.7\n2  23 Female                 7.6                   1.6                   8.6\n3  22   Male                 7.0                   4.6                   6.7\n4  18   Male                 5.3                   7.0                   5.4\n  Overall_Impact Uso_Categoria\n1        Neutral      Moderado\n2       Positive          Bajo\n3        Neutral      Moderado\n4       Negative       Intenso\n\n\n\n\n\n\n\n\nEjercicio\n¿Qué tipo de variables predominan en el dataset?\n\n\ndf_cuan &lt;- df %&gt;% \n  select(Age, Avg_Daily_Usage_Hours,\n         Sleep_Hours_Per_Night,Mental_Health_Score)\n\ndf_cat &lt;- df %&gt;% \n  select(Gender, Academic_Level,\n         Country,Most_Used_Platform,\n         Affects_Academic_Performance,Overall_Impact)"
+  },
+  {
+    "objectID": "Taller2/DiaposTallerR2Sofi.html#filter-arrange",
+    "href": "Taller2/DiaposTallerR2Sofi.html#filter-arrange",
+    "title": "Taller R",
+    "section": "filter() + arrange()",
+    "text": "filter() + arrange()\n\n\n\n¿Cómo cambia el puntaje de salud mental en estudiantes que usan redes más de 5 horas al día?\n\ndf_filter &lt;- df %&gt;% \n  filter(Avg_Daily_Usage_Hours &gt; 5) %&gt;% \n  select(Avg_Daily_Usage_Hours, Mental_Health_Score)  %&gt;%\n  arrange(Mental_Health_Score)\n\nhead(df_filter,7)\n\n  Avg_Daily_Usage_Hours Mental_Health_Score\n1                   7.5                   4\n2                   7.3                   4\n3                   8.0                   4\n4                   5.9                   4\n5                   8.2                   4\n6                   7.1                   4\n7                   7.0                   4\n\n\n\n\n\n\n\n\nfilter() permite usar múltiples condiciones separadas por comas.\n\n\n\n\n\n\n\n\n\nEjercicio\n¿Qué estudiantes duermen menos de 6 horas y usan redes más de 4 horas?\n\n\ndf_filter1 &lt;- df_select %&gt;%\n  filter(Sleep_Hours_Per_Night &lt; 6,\n         Avg_Daily_Usage_Hours &gt; 4)\n\nhead(df_filter1,4)\n\n  Age Gender Mental_Health_Score Avg_Daily_Usage_Hours Sleep_Hours_Per_Night\n1  18   Male                 5.3                   7.0                   5.4\n2  24 Female                 4.4                   7.5                   5.0\n3  22 Female                 5.3                   8.0                   5.2\n4  21 Female                 4.7                   6.0                   5.7\n  Overall_Impact Uso_Categoria\n1       Negative       Intenso\n2       Negative       Intenso\n3       Negative       Intenso\n4       Negative       Intenso"
+  },
+  {
+    "objectID": "Taller2/DiaposTallerR2Sofi.html#group_by-summarise",
+    "href": "Taller2/DiaposTallerR2Sofi.html#group_by-summarise",
+    "title": "Taller R",
+    "section": "group_by() + summarise()",
+    "text": "group_by() + summarise()\n\n\n\n¿Cuál es el promedio del puntaje de salud mental por género?\n\ndf %&gt;% \n  group_by(Gender) %&gt;%\n  summarise(Prom = mean(Mental_Health_Score))\n\n# A tibble: 2 × 2\n  Gender  Prom\n  &lt;chr&gt;  &lt;dbl&gt;\n1 Female  6.16\n2 Male    6.27\n\n\n¿Cómo varía el uso promedio según nivel académico?\n\n\ndf %&gt;% \n  group_by(Academic_Level) %&gt;%\n  summarise(Prom = mean(Avg_Daily_Usage_Hours))\n\n# A tibble: 3 × 2\n  Academic_Level  Prom\n  &lt;chr&gt;          &lt;dbl&gt;\n1 Graduate        4.99\n2 High School     5.28\n3 Undergraduate   5.12\n\n\n\n\n\n\n\n\n\nEjercicio\n¿Qué aplicación tiene más impacto negativo?\n\n\ndf %&gt;% \n  filter(Overall_Impact == \"Negative\") %&gt;% \n  group_by(Most_Used_Platform) %&gt;% \n  summarise(Num = n()) %&gt;% \n  filter(Num == max(Num))\n\n# A tibble: 1 × 2\n  Most_Used_Platform   Num\n  &lt;chr&gt;              &lt;int&gt;\n1 Instagram            241"
+  },
+  {
+    "objectID": "Taller2/DiaposTallerR2Sofi.html#sintaxis-de-ggplot2",
+    "href": "Taller2/DiaposTallerR2Sofi.html#sintaxis-de-ggplot2",
+    "title": "Taller R",
+    "section": "Sintaxis de ggplot2",
+    "text": "Sintaxis de ggplot2\n\n# install.packages(\"ggplot2\") \nlibrary(ggplot2)\nggplot(data, \n       # MAPEO (Aes): Aquí se conectan las columnas de los datos \n       mapping = aes(x = var1,      # Eje X\n                     y = var2          # Eje y \n                     )) +\n  # GEOMETRÍA (Geom): Define qué forma física tomarán esos datos\n  geom_point()  \n\n\n\n\n\n\nDatos (data)\n\n\nInformación estructurada que se desea graficar.\n\n\n\nFormato: data.frame o tibble\nUbicación: argumento dentro de ggplot()\n\n\n\n\n\n\n\n\n\nMapeo (aes)\n\n\nRelación entre variables y atributos visuales.\n\n\n\n\n• x, y: ejes\n\n\n• color: borde\n\n\n• fill: relleno\n\n\n• size: tamaño\n\n\n• shape: forma\n\n\n• alpha: opacidad\n\n\n\n\n\n\n\n\n\n\nGeometría (geom)\n\n\nLa capa que define el tipo de gráfico.\n\n\n\ngeom_point() → dispersión\n\ngeom_line() → líneas\n\ngeom_bar() → barras\n\ngeom_boxplot() → cajas\n\ngeom_histogram() → histogramas"
+  },
+  {
+    "objectID": "Taller2/DiaposTallerR2Sofi.html#gráficos-para-variables-cualitativas",
+    "href": "Taller2/DiaposTallerR2Sofi.html#gráficos-para-variables-cualitativas",
+    "title": "Taller R",
+    "section": "Gráficos para variables cualitativas",
+    "text": "Gráficos para variables cualitativas\n\n\n\n\n\nGráfico de barras\n\n\n\nggplot(df, aes(x = Academic_Level, fill = Academic_Level)) +\n  geom_bar(\n    color = \"white\",\n    linewidth = 0.5,\n    alpha = 0.9\n  ) +\n  scale_fill_manual(\n    values = c(\n      \"#8b5cf6\",\n      \"#1e293b\",\n      \"#528B8B\"\n    )\n  ) +\n  labs(\n    title = \"Frecuencia por nivel educativo\",\n    x = \"Nivel educativo\",\n    y = \"Frecuencia\",\n    fill = \"Nivel educativo\"\n  )\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGráfico de pastel\n\n\n\nggplot(df, aes(x = \"\", fill = Most_Used_Platform)) +\n  geom_bar(\n    width = 1,\n    color = \"white\",\n    linewidth = 0.7\n  ) +\n  coord_polar(theta = \"y\") +\n  scale_fill_manual(\n  values = c(\n    \"#1e293b\", \n    \"#334155\",\n    \"#475569\",\n    \"#64748b\",\n    \"#528B8B\", \n    \"#5f9ea0\",\n    \"#6ba3a5\",\n    \"#7fb3b5\",\n    \"#8b5cf6\", \n    \"#9f75ff\",\n    \"#b794f4\",\n    \"#c4b5fd\"\n  )\n) +\n  labs(\n    title = \"Uso de plataformas digitales\",\n    fill = \"Plataformas\"\n  ) +\n  theme_void()"
+  },
+  {
+    "objectID": "Taller2/DiaposTallerR2Sofi.html#gráficos-para-variables-cuantitativas",
+    "href": "Taller2/DiaposTallerR2Sofi.html#gráficos-para-variables-cuantitativas",
+    "title": "Taller R",
+    "section": "Gráficos para variables cuantitativas",
+    "text": "Gráficos para variables cuantitativas\n\n\n\n\n\nHistograma\n\n\n\nggplot(df, aes(x = Avg_Daily_Usage_Hours)) +\n  geom_histogram(\n    bins = 25, # Cantidad de barras\n    fill = \"#f29100\",\n    color = \"white\",  # Color del borde de las barras\n    linewidth = 0.4, # Grosor del borde de cada barra\n    alpha = 0.9 # Nivel de transparencia\n  ) +\n  labs(\n    title = \"Distribución del uso diario promedio\",\n    x = \"Horas de uso diario\",\n    y = \"Frecuencia\"\n  ) \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBloxplot\n\n\n\nggplot(\n  df, aes(x='',y = Sleep_Hours_Per_Night)) +\n  geom_boxplot(\n    color = \"#f29100\",\n    size = 0.8,\n    width = 0.2,\n    alpha = 0.7\n  ) +\n  stat_boxplot(\n    geom = \"errorbar\",\n    width = 0.15,\n    color = \"#f29100\"\n  ) +\n  geom_jitter(\n  width = 0.07,\n  color = \"#f29100\",\n  alpha = 0.15\n  ) +\n  labs(\n    title = \"Boxplot de las horas de sueño por noche\",\n    x = '',\n    y = \"Horas de sueño por noche\"\n  )"
+  },
+  {
+    "objectID": "Taller2/DiaposTallerR2Sofi.html#análisis-gráfico-entre-dos-variables",
+    "href": "Taller2/DiaposTallerR2Sofi.html#análisis-gráfico-entre-dos-variables",
+    "title": "Taller R",
+    "section": "Análisis gráfico entre dos variables",
+    "text": "Análisis gráfico entre dos variables\n\n\n\n\n\nBoxplot\n\n\n\nggplot(df, aes(x = Academic_Level , y= Avg_Daily_Usage_Hours)) +\n  geom_boxplot(\n    color = \"#f29100\",\n    size = 0.8,\n    width = 0.4,\n    alpha = 0.7\n  ) +\n  stat_boxplot(\n    geom = \"errorbar\",\n    width = 0.3,\n    color = \"#f29100\"\n  ) +\n  geom_jitter(\n  width = 0.07,\n  color = \"#f29100\",\n  alpha = 0.2\n  ) +\n  labs(\n    title = \"Distribución del uso diario promedio por nivel academico\",\n    x = \"Nivel académico\",\n    y = \"Uso diario promedio\"\n  )\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGráfico de dispersión\n\n\n\nggplot(\n  df, aes( x = Avg_Daily_Usage_Hours, y = Sleep_Hours_Per_Night)) +\n  geom_point(\n    color = \"#f29100\",\n    size = 3,\n    alpha = 0.7\n  ) +\n  geom_smooth(\n    method = \"lm\",\n    se = TRUE,\n    color = \"#64748b\",\n    linewidth = 1\n  ) +\n  labs(\n    title = \"Relación entre uso diario y horas de sueño\",\n    x = \"Horas promedio de uso diario\",\n    y = \"Horas de sueño por noche\"\n  ) \n\n`geom_smooth()` using formula = 'y ~ x'"
+  },
+  {
+    "objectID": "Taller2/DiaposTallerR2Sofi.html#se-puede-engañar-con-gráficos",
+    "href": "Taller2/DiaposTallerR2Sofi.html#se-puede-engañar-con-gráficos",
+    "title": "Taller R",
+    "section": "¿Se puede engañar con gráficos?",
+    "text": "¿Se puede engañar con gráficos?\n\n\nVeamos cómo un mismo conjunto de datos puede transmitir mensajes completamente distintos dependiendo de la escala utilizada.\n\n\n\n\nPreparación de los datos\n\n\n\ndf_plot &lt;- df %&gt;%\n  group_by(Overall_Impact) %&gt;%\n  summarise(\n    promedio = mean(\n      Avg_Daily_Usage_Hours,\n      na.rm = TRUE\n    )\n  )\n\n\n\n\n\n\n\n\n\n\n\n\nGráfico correcto\n\n\n\nggplot(\n  df_plot,\n  aes(\n    x = factor(Overall_Impact),\n    y = promedio\n  )\n) +\n  geom_col(\n    fill = \"#f29100\",\n    width = 0.7\n  ) +\n  labs(\n    x = \"Nivel de impacto\",\n    y = \"Horas promedio\"\n  ) +\n  theme_minimal() +\n  theme(\n    plot.title = element_blank(),\n    panel.grid.major.x = element_blank(),\n    axis.title = element_text(size = 11),\n    axis.text = element_text(size = 10)\n  )\n\n\n\n\n\n\n\n\n\n\nLa escala inicia en cero, por lo que las diferencias entre grupos se representan de forma proporcional y objetiva.\n\n\n\n\n\n\n\n\n\n\n\n\nGráfico manipulado\n\n\n\nggplot(\n  df_plot,\n  aes(\n    x = factor(Overall_Impact),\n    y = promedio\n  )\n) +\n  geom_col(\n    fill = \"#64748b\",\n    width = 0.7\n  ) +\n  coord_cartesian(\n    ylim = c(3.6, 8)\n  ) +\n  labs(\n    x = \"Nivel de impacto\",\n    y = \"Horas promedio\"\n  ) +\n  theme_minimal() +\n  theme(\n    plot.title = element_blank(),\n    panel.grid.major.x = element_blank(),\n    axis.title = element_text(size = 11),\n    axis.text = element_text(size = 10)\n  )\n\n\n\n\n\n\n\n\n\n\nAl recortar el eje Y, las diferencias parecen mucho más grandes de lo que realmente son, generando una interpretación engañosa."
+  },
+  {
+    "objectID": "Taller2/DiaposTallerR2Sofi.html",
+    "href": "Taller2/DiaposTallerR2Sofi.html",
+    "title": "Hacia los datos: gráficos y visualización",
+    "section": "",
+    "text": "¿Te animas a aprender R y descubrir qué dicen los datos sobre redes sociales y salud mental?"
   }
 ]

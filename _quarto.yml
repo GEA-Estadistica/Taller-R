@@ -16,6 +16,8 @@ website:
         text: Inicio
       - text: R Desde Cero
         href: Taller/DiaposTallerR.qmd
+      - text: R Hacia los Datos
+        href: Taller2/DiaposTallerR2Sofi.qmd
     
   page-footer:
     left: "GEA - Estadística"
